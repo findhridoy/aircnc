@@ -1,0 +1,194 @@
+/*================ GOOGLE FONTS ================*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/*================ CSS BARIABLES ================*/
+:root {
+  /* Colors */
+  --green-color: hsl(153, 73%, 52%);
+  --green-alt-color: hsl(175, 100%, 33%);
+  --blue-color: hsl(212, 100%, 51%);
+  --blue-alt-color: hsl(189, 100%, 35%);
+  --dark-color: hsl(0, 0%, 0%);
+  --dark-blue-color: hsl(193, 100%, 11%);
+  --white-color: hsl(0, 0%, 100%);
+  --white-alt-color: hsl(0, 0%, 92%);
+  --gray-color: hsl(0, 0%, 42%);
+  --gray-alt-color: hsl(0, 1%, 70%);
+  --red-color: hsl(6, 78%, 57%);
+  --gradient-color: linear-gradient(
+    to right,
+    var(--green-color),
+    hsl(97, 87%, 61%)
+  );
+
+  /* Fonts and Typography --> normal to small screen */ /* 0.0625rem = 1px */
+  --biggest-font: 2.5rem; /* 40px */
+  --h1-font: 1.5rem; /* 24px */
+  --h2-font: 1.25rem; /* 20px */
+  --h3-font: 1rem; /* 16px */
+  --normal-font: 0.938rem; /* 15px */
+  --small-font: 0.813rem; /* 13px */
+  --smaller-font: 0.75rem; /* 12px */
+
+  /* Font Family */
+  --Poppins-font: "Poppins", sans-serif;
+
+  /* Font Weight */
+  --light: 300;
+  --reguler: 400;
+  --medium: 500;
+  --semi-bold: 600;
+  --bold: 700;
+  --bolder: 800;
+
+  /* Margenes/Paddings */
+  --x-0-25: 0.25rem; /* 4px */
+  --x-0-5: 0.5rem; /* 8px */
+  --x-0-75: 0.75rem; /* 12px */
+  --x-1: 1rem; /* 16px */
+  --x-1-25: 1.25rem; /* 20px */
+  --x-1-5: 1.5rem; /* 24px */
+  --x-1-75: 1.75rem; /* 28px */
+  --x-2: 2rem; /* 32px */
+  --x-2-5: 2.5rem; /* 40px */
+  --x-2-75: 2.75rem; /* 44px */
+  --x-3: 3rem; /* 48px */
+
+  /* Z Index */
+  --z-1: 1;
+  --z-10: 10;
+  --z-100: 100;
+
+  /* Others */
+  --hidden: hidden;
+  --transition: all 300ms ease-out;
+  --header-height: 4rem;
+}
+
+/* Fonts and Typography --> big screen */
+@media screen and (min-width: 968px) {
+  :root {
+    --biggest-font: 3rem; /* 64px */
+    --h1-font: 2.25rem; /* 36px */
+    --h2-font: 1.75rem; /* 24px */
+    --h3-font: 1.25rem; /* 20px */
+    --normal-font: 1rem; /* 16px */
+    --small-font: 0.875rem; /* 14px */
+    --smaller-font: 0.813rem; /* 13px */
+  }
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--Poppins-font);
+  font-size: var(--normal-font);
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+button,
+input {
+  border: none;
+  outline: none;
+  font-size: var(--normal-font);
+  font-family: var(--Poppins-font);
+}
+button {
+  cursor: pointer;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*================ REUSEABLE CSS ================*/
+.container {
+  max-width: 1166px;
+  margin-left: var(--x-1);
+  margin-right: var(--x-1);
+}
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+.button {
+  padding: var(--x-0-5) var(--x-1-5);
+  font-size: var(--normal-font);
+  font-weight: var(--semi-bold);
+  transition: var(--transition);
+}
+.button:hover {
+  /* color: var(--text-color);
+  background-color: var(--title-color); */
+}
+
+/*====================== MEDIA QUERIES =====================*/
+/* ------------- For Small Device ------------- */
+@media screen and (max-width: 320px) {
+}
+
+/* ------------- For Medium Device ------------- */
+@media screen and (min-width: 576px) {
+  .container {
+    margin-left: var(--x-1-5);
+    margin-right: var(--x-1-5);
+  }
+}
+
+/* ------------- For Tablet, Laptop ------------- */
+@media screen and (min-width: 768px) {
+  .container {
+    margin-left: var(--x-2);
+    margin-right: var(--x-2);
+  }
+}
+
+/* ------------- For Large Device ------------- */
+@media screen and (min-width: 1024px) {
+  .container {
+    margin-left: var(--x-3);
+    margin-right: var(--x-3);
+  }
+}
+/* ------------- For Extra Large Device ------------- */
+@media screen and (min-width: 1200px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/*================ CSS ALL FILES ================*/
+@import "./Styles/Header";
+/* @import "./Styles/Banner";
+@import "./Styles/SearchForm";
+@import "./Styles/AccordionCount.css";
+@import "../node_modules/swiper/swiper-bundle.min";
+@import "./Styles/SwiperCard";
+@import "./Styles/Result";
+@import "./Styles/ResultCard";
+@import "./Styles/ResultMap";
+@import "./Styles/Confirm";
+@import "./Styles/MultiStep";
+@import "./Styles/ReviewHouseRules";
+@import "./Styles/WhosComming";
+@import "./Styles/ConfirmAndPay";
+@import "./Styles/ConfirmHotelCard";
+@import "./Styles/ConfirmHotelAccordion";
+@import "./Styles/HotelDetails";
+@import "./Styles/PaymentForm";
+@import "./Styles/LoginPage";
+@import "./Styles/PageNotFound"; */

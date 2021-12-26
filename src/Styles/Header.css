@@ -1,0 +1,90 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.header__section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--white);
+  padding: 10px 60px;
+  border-bottom: 1px solid;
+  border-color: var(--ll-gray);
+}
+.header__logo h4 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--green);
+  cursor: pointer;
+}
+.header__search_result {
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 2px 10px var(--ll-gray) !important;
+  border-radius: 8px !important;
+  padding: 0 12px;
+  margin-left: 145px;
+}
+.header__search_result li {
+  padding: 13px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--black);
+}
+.header__search_result li:nth-child(2) {
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-color: var(--ll-gray);
+}
+.header__search_result .MuiSvgIcon-root {
+  padding: 0 10px;
+  font-size: 30px;
+  color: var(--green);
+}
+nav ul {
+  display: flex;
+  /* background: gray; */
+  align-items: center;
+}
+.header__condition_nav {
+  display: flex;
+}
+nav ul li {
+  margin: 0 3px;
+}
+nav ul li a {
+  color: var(--black);
+  font-weight: 500;
+  font-size: 15px;
+  /* font-weight: 500; */
+}
+nav ul li .MuiButton-root,
+.login__button .MuiButton-root,
+.logout__button .MuiButton-root {
+  border-radius: 30px !important;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+nav ul li .MuiButton-label,
+.login__button .MuiButton-label,
+.logout__button .MuiButton-label {
+  text-transform: none;
+  font-weight: 600;
+}
+.logout__button {
+  display: flex;
+}
+.logout__button .MuiAvatar-root {
+  margin: 0 10px;
+}
+.signup__button .MuiButton-root {
+  border-radius: 30px !important;
+  background: var(--g-color);
+  width: 80px;
+  margin-left: 10px;
+}
+.signup__button .MuiButton-label {
+  color: var(--white);
+  text-transform: none;
+}
