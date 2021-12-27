@@ -1,0 +1,27 @@
+/* Count Section */
+.count__section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+.count__title p {
+  color: var(--l-gray);
+  font-size: 13px;
+  font-weight: 500;
+}
+.count__count {
+  display: flex;
+  align-items: center;
+}
+.count__count > input {
+  width: 40px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 5px;
+  outline: none;
+  border: none;
+  background: var(--white);
+}

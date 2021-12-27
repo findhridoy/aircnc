@@ -1,77 +1,134 @@
-.header {
-  position: sticky;
+header {
+  position: fixed;
+  height: var(--header-height);
   top: 0;
-  z-index: 5;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid;
+  border-color: var(--gray-alt-color);
+  background-color: var(--white-color);
+  z-index: 99;
 }
-.header__section {
+.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--white);
-  padding: 10px 60px;
-  border-bottom: 1px solid;
-  border-color: var(--ll-gray);
+  height: 100%;
 }
-.header__logo h4 {
-  font-size: 32px;
+.nav__logo h1 {
+  font-size: var(--h1-font);
   font-weight: 700;
   color: var(--green);
   cursor: pointer;
+  position: relative;
+  z-index: var(--z-1);
 }
-.header__search_result {
+.nav__search {
+  position: relative;
+  top: initial;
+  box-shadow: 0px 0px 10px var(--white-alt-color);
   display: flex;
   align-items: center;
-  box-shadow: 0px 2px 10px var(--ll-gray) !important;
-  border-radius: 8px !important;
-  padding: 0 12px;
-  margin-left: 145px;
+  justify-content: center;
+  border-radius: 8px;
+  padding: var(--x-0-5) var(--x-1);
+  display: none;
 }
-.header__search_result li {
-  padding: 13px 10px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--black);
+@media screen and (max-width: 576px) {
+  .nav__search {
+    position: fixed;
+    left: 0;
+    top: var(--header-height);
+    width: 100%;
+  }
 }
-.header__search_result li:nth-child(2) {
-  border-left: 1px solid;
-  border-right: 1px solid;
-  border-color: var(--ll-gray);
+
+.nav__search li {
+  padding: 0 var(--x-0-5);
+  font-size: var(--small-font);
+  font-weight: var(--semi-bold);
+  color: var(--dark-color);
+  border-right: 1px solid var(--dark-color);
 }
-.header__search_result .MuiSvgIcon-root {
-  padding: 0 10px;
-  font-size: 30px;
-  color: var(--green);
+
+.nav__search .MuiSvgIcon-root {
+  padding-left: var(--x-0-25);
+  font-size: var(--h1-font);
+  color: var(--green-color);
 }
-nav ul {
+.hamburger__button {
+  display: none;
+}
+.nav__menu {
   display: flex;
-  /* background: gray; */
   align-items: center;
 }
-.header__condition_nav {
+.nav__list {
   display: flex;
+  gap: var(--x-0-5);
+  margin-top: 0;
 }
-nav ul li {
-  margin: 0 3px;
+.nav__item .MuiButton-root,
+.signup__button .MuiButton-root {
+  width: initial;
+  padding: var(--x-0-5) var(--x-1);
 }
-nav ul li a {
-  color: var(--black);
-  font-weight: 500;
-  font-size: 15px;
-  /* font-weight: 500; */
+.signup__button .MuiButton-root {
+  padding: var(--x-0-5) var(--x-1-25) !important;
 }
-nav ul li .MuiButton-root,
-.login__button .MuiButton-root,
-.logout__button .MuiButton-root {
-  border-radius: 30px !important;
-  padding-left: 20px;
-  padding-right: 20px;
+.signup__button {
+  margin-top: 0;
+  margin-left: var(--x-1);
 }
-nav ul li .MuiButton-label,
-.login__button .MuiButton-label,
-.logout__button .MuiButton-label {
+@media screen and (max-width: 767px) {
+  .hamburger__button {
+    display: block;
+  }
+  .nav__menu {
+    position: fixed;
+    background: var(--white-alt-color);
+    height: 100%;
+    width: 100%;
+    right: -100%;
+    top: 0;
+    flex-direction: column;
+    transition: var(--transition);
+  }
+  .show__menu {
+    right: 0;
+  }
+  .nav__list {
+    flex-direction: column;
+    margin-top: calc(var(--header-height) + 1rem);
+  }
+  .nav__item .MuiButton-root,
+  .signup__button .MuiButton-root {
+    width: 200px;
+  }
+  .signup__button {
+    margin-top: var(--x-0-75);
+    margin-left: 0;
+  }
+}
+.nav__link {
+  color: var(--dark-color);
+  font-weight: var(--medium);
+  font-family: var(--Poppins-font);
+  font-size: var(--small-font);
+}
+.nav__item .MuiButton-label {
   text-transform: none;
-  font-weight: 600;
 }
+.signup__button .MuiButton-root {
+  padding: var(--x-0-5) 0;
+  background-image: var(--gradient-color);
+}
+.signup__button .MuiButton-label {
+  font-weight: var(--semi-bold);
+  font-family: var(--Poppins-font);
+  color: var(--white-color);
+}
+/*
 .logout__button {
   display: flex;
 }
@@ -87,4 +144,4 @@ nav ul li .MuiButton-label,
 .signup__button .MuiButton-label {
   color: var(--white);
   text-transform: none;
-}
+} */

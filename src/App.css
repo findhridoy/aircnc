@@ -63,6 +63,7 @@
   --hidden: hidden;
   --transition: all 300ms ease-out;
   --header-height: 4rem;
+  --shadow: 0px 2px 10px var(--white-alt-color);
 }
 
 /* Fonts and Typography --> big screen */
@@ -88,10 +89,11 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  margin: 0;
+  margin: var(--header-height) 0 0 0;
   padding: 0;
   font-family: var(--Poppins-font);
   font-size: var(--normal-font);
+  overflow: overlay;
 }
 li {
   list-style: none;
@@ -104,7 +106,7 @@ input {
   border: none;
   outline: none;
   font-size: var(--normal-font);
-  font-family: var(--Poppins-font);
+  font-family: var(--Poppins-font) !important;
 }
 button {
   cursor: pointer;
@@ -115,6 +117,9 @@ img {
 }
 
 /*================ REUSEABLE CSS ================*/
+section {
+  padding: var(--x-2) 0;
+}
 .container {
   max-width: 1166px;
   margin-left: var(--x-1);
@@ -173,9 +178,10 @@ img {
 
 /*================ CSS ALL FILES ================*/
 @import "./Styles/Header";
-/* @import "./Styles/Banner";
+@import "./Styles/Banner";
 @import "./Styles/SearchForm";
 @import "./Styles/AccordionCount.css";
+/*
 @import "../node_modules/swiper/swiper-bundle.min";
 @import "./Styles/SwiperCard";
 @import "./Styles/Result";
@@ -191,4 +197,37 @@ img {
 @import "./Styles/HotelDetails";
 @import "./Styles/PaymentForm";
 @import "./Styles/LoginPage";
-@import "./Styles/PageNotFound"; */
+@import "./Styles/PageNotFound";
+*/
+
+::-webkit-scrollbar {
+  width: 0.6rem;
+  /* background-color: var(--gray-color); */
+}
+::-webkit-scrollbar-thumb {
+  width: 0.6rem;
+  background-color: var(--gray-alt-color);
+  border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--gray-color);
+}
+/* ====================== MEDIA QUERIES =====================
+/* ------------- For Small Device ------------- */
+@media screen and (max-width: 340px) {
+}
+
+/* ------------- For Medium Device ------------- */
+@media screen and (min-width: 576px) {
+}
+
+/* ------------- For Tablet, Laptop ------------- */
+@media screen and (min-width: 768px) {
+}
+
+/* ------------- For Large Device ------------- */
+@media screen and (min-width: 1024px) {
+}
+/* ------------- For Extra Large Device ------------- */
+@media screen and (min-width: 1200px) {
+}

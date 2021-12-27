@@ -2,13 +2,13 @@ import React from "react";
 import Banner from "../Components/Banner";
 import Header from "../Components/Header";
 
-function Home() {
+const Home = () => {
   return (
-    <div className="home">
+    <>
       <Header />
-      <Banner/>
-    </div>
+      <Banner />
+    </>
   );
-}
+};
 
 export default Home;
