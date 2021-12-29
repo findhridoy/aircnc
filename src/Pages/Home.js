@@ -1,13 +1,12 @@
 import React from "react";
 import Banner from "../Components/Banner";
-import Header from "../Components/Header";
+import Layout from "../Layout/Layout";
 
 const Home = () => {
   return (
-    <>
-      <Header />
+    <Layout>
       <Banner />
-    </>
+    </Layout>
   );
 };
 

@@ -9,6 +9,7 @@ import { NavLink, useHistory, useParams } from "react-router-dom";
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
+  const [showHeader, setShowHeader] = useState(false);
   const { id } = useParams();
   const history = useHistory();
   const handleRoute = () => {
@@ -22,8 +23,15 @@ function Header() {
   const openNavMenu = () => {
     setShowMenu(!showMenu);
   };
+  window.addEventListener("scroll", () => {
+    if (window.scrollY >= 50) {
+      setShowHeader(true);
+    } else {
+      setShowHeader(false);
+    }
+  });
   return (
-    <header>
+    <header className={showHeader ? "header show__header" : "header"}>
       <nav className="nav container">
         <div className="nav__logo" onClick={handleHomeRoute}>
           <h1>Aircnc</h1>

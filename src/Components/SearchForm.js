@@ -11,7 +11,6 @@ import "date-fns";
 import React, { useState } from "react";
 import MapboxAutocomplete from "react-mapbox-autocomplete";
 import { useHistory } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
 import AccordionCount from "./AccordionCount";
 
 function SearchForm() {
@@ -87,9 +86,7 @@ function SearchForm() {
   // Search Function Start
   const handleSearch = () => {
     if (locationName === "") {
-      toast.error("Please fill the location field", {
-        position: "bottom-right",
-      });
+      console.alert("Please fill the location field");
     }
     if (locationName !== "") {
       const newData = {
@@ -106,7 +103,7 @@ function SearchForm() {
   // Search Function End
   return (
     <>
-      <form action="">
+      <form action="" className="search__form">
         <div className="search__location">
           <h4>LOCATION</h4>
           <MapboxAutocomplete
@@ -196,7 +193,6 @@ function SearchForm() {
             <SearchIcon /> Search
           </Button>
         </div>
-        <ToastContainer />
       </form>
     </>
   );

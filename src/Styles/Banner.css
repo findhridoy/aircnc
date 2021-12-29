@@ -1,43 +1,53 @@
-.banner__section {
-  /* background: gray; */
-}
 .banner__title {
   font-size: var(--h3-font);
 }
 .banner__content {
-  margin-top: 30px;
-  /* width: 100%; */
-  /* display: flex; */
-  /* justify-content: space-between; */
+  margin-top: var(--x-1-75);
+  position: relative;
 }
-.banner__left {
-  /* width: 30%; */
-  /* background: red; */
-  /* padding: 1rem; */
-}
-.banner__right {
-  /* width: 62%; */
-  /* padding-right: 35px; */
-}
-/* .experience__title,
-.home__title {
+.banner__subtitle {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: var(--x-0-75);
 }
-.experience__title h3,
-.home__title h3 {
-  color: var(--gray);
+.banner__subtitle--text {
+  color: var(--gray-color);
+  font-size: var(--h3-font);
+  font-weight: var(--semi-bold);
 }
-.experience__title a,
-.home__title a {
-  font-size: 13px;
-  font-weight: 600;
+.banner__subtitle--link {
+  font-size: var(--small-font);
+  font-weight: var(--medium);
+  display: flex;
+  align-items: center;
+  gap: var(--x-0-5);
+  color: var(--blue-color);
 }
-.experience__title .MuiSvgIcon-root,
-.home__title .MuiSvgIcon-root {
-  font-size: 12px;
+.banner__subtitle--link .MuiSvgIcon-root {
+  font-size: var(--normal-font);
 }
-.banner__home {
-  margin-top: 12px;
-} */
+
+.banner__experince {
+  margin-bottom: var(--x-2);
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+/* ====================== MEDIA QUERIES =====================
+/* ------------- For Extra Large Device ------------- */
+@media screen and (min-width: 1200px) {
+  .banner__left {
+    position: absolute;
+    left: 0;
+    z-index: 9;
+  }
+  .banner__right {
+    position: relative;
+    left: calc(380px + 50px);
+    z-index: 9;
+    max-width: 750px;
+  }
+}

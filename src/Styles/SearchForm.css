@@ -1,7 +1,12 @@
+.search__form {
+  max-width: 500px;
+  min-width: 280px;
+  margin: 0 auto var(--x-3);
+}
 .search__location {
-  background: #fff;
+  background-color: var(--white-color);
   box-shadow: var(--shadow);
-  border-radius: 10px;
+  border-radius: var(--radius);
   padding: var(--x-0-5) var(--x-1-25) 0;
 }
 /* Map Box Auto Complete Start */
@@ -16,10 +21,10 @@
   width: auto;
   position: absolute;
   /* z-index: 9999; */
-  background-color: #fff;
+  background-color: var(--white-color);
   border: none !important;
   box-shadow: var(--shadow);
-  border-radius: var(--x-0-75);
+  border-radius: var(--radius);
   padding-top: var(--x-0-5);
   margin-top: 0 !important;
   left: 4.5%;
@@ -32,26 +37,28 @@
   border: none;
   outline: none;
   font-size: var(--small-font);
-  font-weight: 500;
+  font-weight: var(--medium);
+  font-family: var(--Poppins-font);
 }
 
 .react-mapbox-ac-suggestion {
-  font-size: 18px;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
+  font-size: var(--normal-font);
+  margin-bottom: var(--x-0-5);
+  font-weight: var(--medium);
   cursor: pointer;
-  padding-left: 35px !important;
-  padding-right: 1.5rem;
+  padding-left: 2.1875rem !important;
+  padding-right: var(--x-1-5);
+  font-family: var(--Poppins-font);
 }
 .react-mapbox-ac-suggestion::before {
   content: " ";
   background-image: url("../Images/Icons/marker.svg");
-  background-size: 17px 17px;
+  background-size: 1.0625rem 1.0625rem;
   background-repeat: no-repeat;
-  height: 17px;
-  width: 17px;
+  height: 1.0625rem;
+  width: 1.0625rem;
   position: absolute;
-  left: 7px;
+  left: 0.4375rem;
 }
 
 .react-mapbox-ac-suggestion:hover {
@@ -66,18 +73,18 @@
 .search__date p {
   font-weight: var(--semi-bold);
   font-size: var(--small-font);
-  margin-bottom: -10px;
+  margin-bottom: -0.625rem;
   color: var(--gray-color);
 }
 .search__toDate,
 .search__fromDate {
-  padding: 8px 15px 0;
+  padding: var(--x-0-5) 0.9375rem 0;
   background-color: var(--white-color);
   box-shadow: var(--shadow);
-  border-radius: 10px;
+  border-radius: var(--radius);
 }
 .search__fromDate {
-  margin-left: 8px;
+  margin-left: var(--x-0-5);
 }
 
 .MuiInputBase-root {
@@ -92,8 +99,8 @@
 }
 /* Search From Accorodian */
 .searchForm__accordion .MuiAccordion-root {
-  box-shadow: 0px 2px 10px var(--ll-gray) !important;
-  border-radius: 10px !important;
+  box-shadow: var(--shadow) !important;
+  border-radius: var(--radius) !important;
 }
 .searchForm__accordion .MuiAccordionSummary-content {
   flex-direction: column;
@@ -106,18 +113,20 @@
 }
 
 .searchForm__accordion .MuiAccordionDetails-root {
-  border-top: 2px solid var(--gray-alt-color) !important;
-  padding: 5px 16px !important;
+  border-top: var(--border) !important;
+  border-color: var(--gray-alt-color) !important;
+  padding: 0.3125rem var(--x-1) !important;
   display: block !important;
 }
 .accordion__button {
   display: flex;
-  padding: 0 5px 13px;
+  padding: 0 var(--x-0-5) 0.8125rem;
   justify-content: space-between;
 }
 .accordion__button .MuiButton-root {
-  width: 90px;
-  border: 1px solid var(--green-color);
+  width: 5.625rem;
+  border: var(--border);
+  border-color: var(--green-color);
 }
 .accordion__button .MuiButton-label {
   color: var(--green-color);
@@ -126,15 +135,41 @@
   font-size: var(--smaller-font);
 }
 .search__button {
-  margin-top: 15px;
+  margin-top: var(--x-1);
 }
 .search__button .MuiButton-root {
   width: 100%;
-  height: 52px;
+  padding: var(--x-0-5) 0;
   background: var(--gradient-color) !important;
 }
 .search__button .MuiButton-label {
   color: var(--white-color);
   text-transform: none;
   font-size: var(--normal-font);
+}
+
+/* ====================== MEDIA QUERIES =====================
+/* ------------- For Small Device ------------- */
+@media screen and (max-width: 340px) {
+}
+
+/* ------------- For Medium Device ------------- */
+@media screen and (min-width: 576px) {
+}
+
+/* ------------- For Tablet, Laptop ------------- */
+@media screen and (min-width: 768px) {
+  .search__button .MuiButton-root {
+    padding: var(--x-0-75) 0;
+  }
+}
+
+/* ------------- For Large Device ------------- */
+@media screen and (min-width: 1024px) {
+  .search__form {
+    max-width: 380px;
+  }
+}
+/* ------------- For Extra Large Device ------------- */
+@media screen and (min-width: 1200px) {
 }

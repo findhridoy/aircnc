@@ -1,0 +1,11 @@
+.map {
+  /* width: 70%;
+  position: relative; */
+  /* height: 100%; */
+  /* background: #000; */
+}
+.map .MuiSvgIcon-root {
+  color: var(--red) !important;
+  font-size: 40px !important;
+  margin-right: 2px;
+}

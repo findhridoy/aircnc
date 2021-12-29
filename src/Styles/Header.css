@@ -1,13 +1,19 @@
-header {
+.header {
   position: fixed;
   height: var(--header-height);
   top: 0;
   left: 0;
   width: 100%;
-  border-bottom: 1px solid;
-  border-color: var(--gray-alt-color);
+  box-shadow: var(--shadow);
+  border-bottom: var(--border);
+  border-color: transparent;
   background-color: var(--white-color);
   z-index: 99;
+  transition: var(--transition);
+}
+.show__header {
+  border-bottom: var(--border);
+  border-color: var(--gray-alt-color);
 }
 .nav {
   display: flex;
@@ -18,7 +24,7 @@ header {
 .nav__logo h1 {
   font-size: var(--h1-font);
   font-weight: 700;
-  color: var(--green);
+  color: var(--green-color);
   cursor: pointer;
   position: relative;
   z-index: var(--z-1);
@@ -72,6 +78,7 @@ header {
 .signup__button .MuiButton-root {
   width: initial;
   padding: var(--x-0-5) var(--x-1);
+  border-radius: var(--x-1-5);
 }
 .signup__button .MuiButton-root {
   padding: var(--x-0-5) var(--x-1-25) !important;

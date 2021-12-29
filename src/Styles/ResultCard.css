@@ -1,0 +1,87 @@
+.result__card {
+  /* min-width: 200px;
+  max-width: 300px; */
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: var(--x-1);
+  /* background: gray; */
+  border-bottom: var(--border);
+  border-color: var(--gray-alt-color);
+  margin-top: var(--x-1-75);
+  padding-bottom: var(--x-1);
+}
+.result__card--img img {
+  border-radius: var(--radius);
+}
+.result__card--data {
+}
+.result__card--title {
+  font-weight: var(--bold);
+  font-size: var(--small-font);
+  color: var(--dark-color);
+}
+.result__card--gusts,
+.result__card--facilities,
+.result__card--cancel {
+  font-weight: var(--semi-bold);
+  font-size: var(--smaller-font);
+  margin-top: var(--x-0-25);
+  color: var(--gray-color);
+}
+.result__card--cancel {
+  margin-top: var(--x-1);
+}
+
+.result__rating--price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--x-0-75);
+}
+.result__card--rating {
+  font-weight: var(--bolder);
+  font-size: var(--smallest-font);
+  display: flex;
+  align-items: center;
+  gap: var(--x-0-25);
+  color: var(--gray-color);
+}
+.result__card--rating .MuiSvgIcon-root {
+  color: var(--green-color) !important;
+  font-size: var(--small-font) !important;
+}
+
+.result__card--price {
+  font-weight: var(--bold);
+  font-size: var(--small-font);
+  color: var(--dark-color);
+}
+
+/* ====================== MEDIA QUERIES =====================
+/* ------------- For Small Device ------------- */
+@media screen and (max-width: 340px) {
+}
+
+/* ------------- For Medium Device ------------- */
+@media screen and (min-width: 576px) {
+  .result__card {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--x-1-25);
+  }
+  .result__card--img {
+    width: 40%;
+  }
+}
+
+/* ------------- For Tablet, Laptop ------------- */
+@media screen and (min-width: 768px) {
+}
+
+/* ------------- For Large Device ------------- */
+@media screen and (min-width: 1024px) {
+}
+/* ------------- For Extra Large Device ------------- */
+@media screen and (min-width: 1200px) {
+}
