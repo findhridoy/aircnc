@@ -1,0 +1,43 @@
+.confirmHotel__card {
+  border-radius: var(--x-0-75);
+  padding: var(--x-1-25) var(--x-1);
+  margin: var(--x-2) auto 0;
+  box-shadow: var(--shadow);
+  max-width: 400px;
+}
+.confirmHotel__content {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--x-0-75);
+}
+.confirmHotel__data h4 {
+  color: var(--dark-color);
+  font-size: var(--normal-font);
+  font-weight: var(--semi-bold);
+}
+.confirmHotel__data p {
+  font-weight: var(--bolder);
+  font-size: var(--smallest-font);
+  display: flex;
+  gap: var(--x-0-25);
+  color: var(--dark-color);
+  margin-top: var(--x-0-75);
+}
+.confirmHotel__data p span {
+  font-weight: 500;
+  color: var(--gray-color);
+}
+.confirmHotel__data p .MuiSvgIcon-root {
+  color: var(--green-color) !important;
+  font-size: var(--normal-font) !important;
+}
+
+.confirmHotel__image {
+  width: 12rem;
+  overflow: hidden;
+  border-radius: var(--x-0-5);
+}
+.confirmHotel__image img {
+  border-radius: var(--x-0-5);
+  object-fit: cover;
+}

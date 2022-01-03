@@ -5,20 +5,14 @@ import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import React, { useState } from "react";
 import Moment from "react-moment";
-import { NavLink, useHistory, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useAuth } from "../Context/AuthContext";
 
-function Header() {
+function Header({ history }) {
   const [showMenu, setShowMenu] = useState(false);
   const [showHeader, setShowHeader] = useState(false);
-  const { id } = useParams();
-  const history = useHistory();
-  const handleRoute = () => {
-    history.push("/login");
-  };
-  const userLogOut = () => {};
-  const handleHomeRoute = () => {
-    history.push("/");
-  };
+
+  const { logout, currentUser } = useAuth();
 
   const openNavMenu = () => {
     setShowMenu(!showMenu);
@@ -33,8 +27,12 @@ function Header() {
   return (
     <header className={showHeader ? "header show__header" : "header"}>
       <nav className="nav container">
-        <div className="nav__logo" onClick={handleHomeRoute}>
-          <h1>Aircnc</h1>
+        <div className="nav__logo">
+          <h1>
+            <NavLink exact to="/">
+              Aircnc
+            </NavLink>
+          </h1>
         </div>
         <div className="nav__search">
           <li>Dhaka</li>
@@ -69,10 +67,22 @@ function Header() {
               </Button>
             </li>
           </ul>
-
-          <div className="signup__button">
-            <Button onClick={handleRoute}>Sign up</Button>
-          </div>
+          {currentUser ? (
+            <>
+              <div className="currentUser">
+                <span>{currentUser?.displayName}</span>
+              </div>
+              <div className="signup__button">
+                <Button onClick={logout()}>Logout</Button>
+              </div>
+            </>
+          ) : (
+            <div className="signup__button">
+              <Button>
+                <NavLink to="/login">Login</NavLink>
+              </Button>
+            </div>
+          )}
         </div>
         <div className="hamburger__button">
           <IconButton onClick={openNavMenu}>

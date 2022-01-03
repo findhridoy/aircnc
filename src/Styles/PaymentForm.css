@@ -1,0 +1,147 @@
+.paymentForm__section {
+  margin-top: var(--x-2-75);
+}
+.paymentForm__section h4 {
+  color: var(--gray-color);
+  font-size: var(--h3-font);
+  font-weight: var(--semi-bold);
+}
+.paymentForm__section .MuiFormControlLabel-root {
+  display: grid !important;
+  grid-template-columns: 2rem 1fr;
+  align-items: flex-start !important;
+  padding: var(--x-1-5) var(--x-1-75) var(--x-1-75) var(--x-0-75);
+  gap: var(--x-1);
+  margin-top: var(--x-1);
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  border: var(--border);
+  border-color: var(--gray-alt-color);
+}
+.craditCard__title_section,
+.paypal__title_section {
+  display: flex;
+  gap: var(--x-1);
+}
+.paypal__title_section {
+  margin-bottom: 0;
+}
+.craditCard__title,
+.paypal__title {
+  width: 75%;
+}
+.craditCard__title p:first-child,
+.paypal__title p:first-child {
+  color: var(--dark-color);
+  font-weight: var(--bolder);
+  font-size: var(--small-font);
+  font-family: var(--Poppins-font);
+}
+.craditCard__title p:last-child,
+.paypal__title p:last-child {
+  color: var(--gray-color);
+  font-size: var(--smaller-font);
+  font-family: var(--Poppins-font);
+  margin-top: var(--x-0-25);
+}
+.craditCard__image {
+  display: flex;
+  gap: 0.2rem;
+}
+.paypal__image img {
+  width: 3.4375rem;
+}
+.paymentCard__form {
+  margin-top: var(--x-1-5);
+}
+.paymentCard__form label {
+  color: var(--gray-alt-color);
+  font-weight: var(--semi-bold);
+  font-size: var(--smaller-font);
+  font-family: var(--Poppins-font);
+  text-transform: uppercase;
+  margin-top: var(--x-0-75);
+}
+.paymentCard__form input,
+.paymentCard__form .StripeElement {
+  margin-top: var(--x-0-25);
+  width: 100%;
+  padding: var(--x-0-75) var(--x-0-5);
+  height: var(--x-2-5);
+  border: var(--border);
+  border-color: var(--gray-alt-color);
+  outline: 0;
+}
+
+.paymentCard__form input::placeholder {
+  color: var(--gray-alt-color);
+  font-size: var(--small-font);
+}
+
+.paymentCard__form input:focus,
+.StripeElement--focus {
+  box-shadow: rgba(50, 50, 93, 0.109804) 0 0.25rem 0.375rem,
+    rgba(0, 0, 0, 0.0784314) 0 0.0625rem 0.1875rem;
+  -webkit-transition: all 150ms ease;
+  transition: all 150ms ease;
+}
+
+.payment__form--align {
+  margin-top: var(--x-0-5);
+}
+.payment__form--flex {
+  display: grid;
+  column-gap: var(--x-1);
+  grid-template-columns: repeat(2, 1fr);
+}
+.payment__button {
+  text-align: right;
+}
+.payment__button .MuiButton-root {
+  background: var(--green-color) !important;
+  padding: var(--x-0-75) var(--x-1-75);
+  margin-top: var(--x-1-5);
+}
+.payment__button .MuiButton-label {
+  color: var(--white-color);
+  text-transform: none;
+  font-size: var(--smaller-font);
+}
+.paypal__button {
+  margin-top: var(--x-1);
+}
+
+/* ====================== MEDIA QUERIES =====================
+/* ------------- For Small Device ------------- */
+@media screen and (max-width: 380px) {
+  .craditCard__title p:last-child,
+  .paypal__title p:last-child {
+    display: none;
+  }
+  .payment__form--flex {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------- For Medium Device ------------- */
+@media screen and (min-width: 576px) {
+}
+
+/* ------------- For Tablet, Laptop ------------- */
+@media screen and (min-width: 768px) {
+}
+
+/* ------------- For Large Device ------------- */
+@media screen and (min-width: 1024px) {
+}
+/* ------------- For Extra Large Device ------------- */
+@media screen and (min-width: 1200px) {
+  .payment__form--align {
+    display: grid;
+    column-gap: var(--x-0-5);
+    grid-template-columns: 1fr 60%;
+  }
+  .payment__form--flex {
+    column-gap: var(--x-0-5);
+  }
+}

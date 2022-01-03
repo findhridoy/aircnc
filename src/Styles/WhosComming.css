@@ -1,0 +1,38 @@
+.whosComing {
+  margin-top: var(--x-2-75);
+}
+.whosComing h4 {
+  font-weight: var(--semi-bold);
+  font-size: var(--h3-font);
+}
+.content__text p {
+  font-size: var(--smaller-font);
+  color: var(--gray-color);
+  margin-top: var(--x-0-25);
+}
+.whosComing > textarea {
+  border-color: var(--gray-alt-color);
+  border-radius: 0.2rem;
+  font-weight: var(--semi-bold);
+  padding: var(--x-0-75);
+  font-size: var(--smaller-font);
+  outline: none;
+  color: var(--dark-color);
+  margin-top: var(--x-1-5);
+  width: 90%;
+}
+.whosComing > textarea::placeholder {
+  font-weight: var(--medium);
+  color: var(--gray-color) !important;
+  font-size: var(--smaller-font);
+}
+.whosComing .MuiButton-root {
+  background: var(--green-color) !important;
+  padding: var(--x-0-5) var(--x-1-5);
+  margin-top: var(--x-1-5);
+}
+.whosComing .MuiButton-label {
+  color: var(--white-color);
+  text-transform: none;
+  font-size: var(--smaller-font);
+}

@@ -1,0 +1,20 @@
+.pageNotFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(90vh - var(--header-height));
+}
+.pageNotFound h1 {
+  font-size: var(--biggest-font);
+  /* line-height: 1; */
+}
+.pageNotFound h3 {
+  font-size: var(--big-font);
+}
+.pageNotFound h5 {
+  font-size: var(--h2-font);
+}
+.pageNotFound h5 a {
+  color: var(--blue-color);
+}

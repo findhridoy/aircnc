@@ -10,7 +10,7 @@ const ResultMap = () => {
         center={position}
         zoom={13}
         scrollWheelZoom={false}
-        style={{ height: "500px" }}
+        className="map__container"
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

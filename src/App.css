@@ -22,7 +22,8 @@
   );
 
   /* Fonts and Typography --> normal to small screen */ /* 0.0625rem = 1px */
-  --biggest-font: 2.5rem; /* 40px */
+  --biggest-font: 3rem;
+  --big-font: 2rem;
   --h1-font: 1.5rem; /* 24px */
   --h2-font: 1.25rem; /* 20px */
   --h3-font: 1rem; /* 16px */
@@ -67,12 +68,14 @@
   --radius: 0.625rem;
   --border: 0.0625rem solid;
   --shadow: 0 0.125rem 0.625rem var(--white-alt-color);
+  --shadow-alt: 0 0.125rem 0.625rem var(--gray-alt-color);
 }
 
 /* Fonts and Typography --> big screen */
 @media screen and (min-width: 968px) {
   :root {
-    --biggest-font: 3rem; /* 64px */
+    --biggest-font: 5rem;
+    --big-font: 3rem;
     --h1-font: 2.25rem; /* 36px */
     --h2-font: 1.75rem; /* 24px */
     --h3-font: 1.25rem; /* 20px */
@@ -198,18 +201,18 @@ section {
 @import "./Styles/Result";
 @import "./Styles/ResultCard";
 @import "./Styles/ResultMap";
-/*
-@import "./Styles/Confirm";
-@import "./Styles/MultiStep";
-@import "./Styles/ReviewHouseRules";
-@import "./Styles/WhosComming";
-@import "./Styles/ConfirmAndPay";
-@import "./Styles/ConfirmHotelCard";
-@import "./Styles/ConfirmHotelAccordion";
 @import "./Styles/HotelDetails";
+@import "./Styles/ConfirmHotelAccordion";
+@import "./Styles/ConfirmLayout";
+@import "./Styles/MultiStepNav";
+@import "./Styles/ReviewHouseRules";
+@import "./Styles/ConfirmHotelCard";
+@import "./Styles/WhosComming";
 @import "./Styles/PaymentForm";
-@import "./Styles/LoginPage";
+@import "./Styles/SignupLogin";
 @import "./Styles/PageNotFound";
+/*
+@import "./Styles/LoginPage";
 */
 
 ::-webkit-scrollbar {

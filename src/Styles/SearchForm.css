@@ -49,6 +49,8 @@
   padding-left: 2.1875rem !important;
   padding-right: var(--x-1-5);
   font-family: var(--Poppins-font);
+  display: flex;
+  align-items: center;
 }
 .react-mapbox-ac-suggestion::before {
   content: " ";

@@ -1,20 +1,15 @@
 .result__card {
-  /* min-width: 200px;
-  max-width: 300px; */
   cursor: pointer;
   display: flex;
-  flex-direction: column;
   gap: var(--x-1);
-  /* background: gray; */
   border-bottom: var(--border);
   border-color: var(--gray-alt-color);
   margin-top: var(--x-1-75);
   padding-bottom: var(--x-1);
 }
 .result__card--img img {
+  object-fit: cover;
   border-radius: var(--radius);
-}
-.result__card--data {
 }
 .result__card--title {
   font-weight: var(--bold);
@@ -62,26 +57,47 @@
 /* ------------- For Small Device ------------- */
 @media screen and (max-width: 340px) {
 }
+@media screen and (max-width: 576px) {
+  .result__card {
+    max-width: 20rem;
+    margin: var(--x-1-75) auto 0;
+  }
+  .result__card {
+    flex-direction: column;
+  }
+}
 
 /* ------------- For Medium Device ------------- */
 @media screen and (min-width: 576px) {
-  .result__card {
-    flex-direction: row;
-    align-items: center;
-    gap: var(--x-1-25);
-  }
   .result__card--img {
-    width: 40%;
+    max-width: 15.625rem;
+    height: 9.375rem;
+    overflow: hidden;
+    border-radius: var(--radius);
   }
 }
 
 /* ------------- For Tablet, Laptop ------------- */
 @media screen and (min-width: 768px) {
+  .result__card--img {
+    height: 11.25rem;
+    max-width: 18.75rem;
+  }
 }
 
 /* ------------- For Large Device ------------- */
 @media screen and (min-width: 1024px) {
+  .result__card--img {
+    max-width: 11.25rem;
+  }
 }
 /* ------------- For Extra Large Device ------------- */
 @media screen and (min-width: 1200px) {
+  .result__card {
+    max-width: 37.5rem;
+  }
+  .result__card--img {
+    max-width: 13.75rem;
+    height: 9.375rem;
+  }
 }

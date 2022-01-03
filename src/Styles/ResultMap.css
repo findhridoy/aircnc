@@ -1,11 +1,17 @@
-.map {
-  /* width: 70%;
-  position: relative; */
-  /* height: 100%; */
-  /* background: #000; */
+.map__container {
+  height: 31.25rem;
 }
-.map .MuiSvgIcon-root {
-  color: var(--red) !important;
-  font-size: 40px !important;
-  margin-right: 2px;
+
+/* ------------- For Extra Large Device ------------- */
+@media screen and (min-width: 1200px) {
+  .map {
+    position: fixed;
+    width: 45%;
+    height: 100vh;
+    top: var(--header-height);
+    right: 0;
+  }
+  .map__container {
+    height: 100%;
+  }
 }

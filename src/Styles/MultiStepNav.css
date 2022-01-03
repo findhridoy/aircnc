@@ -1,0 +1,59 @@
+.multiStepNav {
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: -1.8rem;
+}
+.multiStepNav__link,
+.multiStepNav button {
+  font-size: var(--small-font);
+  color: var(--blue-color);
+  font-weight: var(--semi-bold);
+  background: transparent;
+  font-family: var(--Poppins-font);
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.multiStepNav__link .MuiSvgIcon-root,
+.multiStepNav button .MuiSvgIcon-root {
+  font-size: var(--h3-font);
+}
+.multiStepNav button:disabled {
+  color: var(--gray-alt-color);
+  pointer-events: auto;
+  cursor: not-allowed;
+}
+
+/* ====================== MEDIA QUERIES =====================
+/* ------------- For Small Device ------------- */
+@media screen and (max-width: 499px) {
+  .multiStepNav button span,
+  .multiStepNav__link span {
+    display: none;
+  }
+}
+/* ------------- For Medium Device ------------- */
+@media screen and (min-width: 576px) {
+  .multiStepNav {
+    width: 470px;
+  }
+}
+
+/* ------------- For Tablet, Laptop ------------- */
+@media screen and (min-width: 768px) {
+  .multiStepNav {
+    width: 580px;
+    top: 0;
+  }
+}
+
+/* ------------- For Large Device ------------- */
+@media screen and (min-width: 1024px) {
+}
+/* ------------- For Extra Large Device ------------- */
+@media screen and (min-width: 1200px) {
+}

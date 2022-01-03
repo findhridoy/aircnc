@@ -86,7 +86,7 @@ function SearchForm() {
   // Search Function Start
   const handleSearch = () => {
     if (locationName === "") {
-      console.alert("Please fill the location field");
+      alert("Please fill the location field");
     }
     if (locationName !== "") {
       const newData = {
