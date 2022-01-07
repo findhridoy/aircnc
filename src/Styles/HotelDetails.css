@@ -140,6 +140,12 @@
   }
 }
 
+@media screen and (max-width: 576px) {
+  .hotelDetails {
+    margin-top: 6.5rem;
+  }
+}
+
 /* ------------- For Tablet, Laptop ------------- */
 @media screen and (min-width: 768px) {
   .hotelDetails__section {

@@ -19,7 +19,7 @@ function HotelDetails() {
   const { id } = useParams();
   useEffect(() => {
     data
-      .filter((res) => res.id == id)
+      .filter((res) => res.id === id)
       .map((allData, index) => setContent(allData));
   }, [id]);
   const {

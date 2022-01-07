@@ -22,11 +22,11 @@
 .multiStepNav button .MuiSvgIcon-root {
   font-size: var(--h3-font);
 }
-.multiStepNav button:disabled {
+/* .multiStepNav button:disabled {
   color: var(--gray-alt-color);
   pointer-events: auto;
   cursor: not-allowed;
-}
+} */
 
 /* ====================== MEDIA QUERIES =====================
 /* ------------- For Small Device ------------- */

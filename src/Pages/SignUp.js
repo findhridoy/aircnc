@@ -1,41 +1,41 @@
-import { Button } from "@material-ui/core";
+import { Button, CircularProgress } from "@material-ui/core";
 import cogoToast from "cogo-toast";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
 import Layout from "../Layout/Layout";
 
-const SignUp = ({ history }) => {
+const SignUp = ({ history, location, replace }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [loading, setLoading] = useState();
 
   const { signup } = useAuth();
 
-  const handleSubmit = (e) => {
+  // Redirect
+  let { from } = location.state || { from: { pathname: "/" } };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       cogoToast.warn("Password don't match!", { position: "bottom-right" });
     } else {
-      cogoToast
-        .loading("Loading....", { position: "bottom-right" })
-        .then(async () => {
-          try {
-            await signup(email, password, name);
-            cogoToast.success("Your account has been created.", {
-              position: "bottom-right",
-            });
-            history.push("/");
-          } catch (error) {
-            if (error) {
-              cogoToast.error(error.message, {
-                position: "bottom-right",
-              });
-            }
-            console.log(error);
-          }
+      try {
+        setLoading(true);
+        await signup(email, password, name);
+        cogoToast.success("Your account has been created.", {
+          position: "bottom-right",
         });
+        history.replace(from);
+        setLoading(false);
+      } catch (error) {
+        cogoToast.error(error.message, {
+          position: "bottom-right",
+        });
+        setLoading(false);
+      }
     }
   };
   return (
@@ -92,7 +92,7 @@ const SignUp = ({ history }) => {
 
               <div className="form__group">
                 <label className="form__text" htmlFor="confirmPassword">
-                  Name
+                  Confirm Password
                 </label>
                 <input
                   className="form__control"
@@ -105,11 +105,17 @@ const SignUp = ({ history }) => {
                 />
               </div>
               <div className="form__btn">
-                <Button type="submit">Sing up</Button>
+                <Button variant="contained" type="submit" disabled={loading}>
+                  {loading ? (
+                    <CircularProgress color="secondary" size={28} />
+                  ) : (
+                    "Sign up"
+                  )}
+                </Button>
               </div>
             </form>
             <span className="form__bottom--text">
-              Already have an account?{" "}
+              Already have an account?
               <NavLink to="/login" className="form__bottom--link">
                 Login
               </NavLink>

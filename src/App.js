@@ -2,6 +2,8 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./Context/AuthContext";
+import PrivateRoute from "./Layout/PrivateRoute";
+import PublicRoute from "./Layout/PublicRoute";
 import ConfirmAndPay from "./Pages/ConfirmAndPay";
 import Home from "./Pages/Home";
 import HotelDetails from "./Pages/HotelDetails";
@@ -19,11 +21,23 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/result" component={Result} />
         <Route exact path="/details/:id" component={HotelDetails} />
-        <Route exact path="/confirm/rules" component={ReviewHouseRules} />
-        <Route exact path="/confirm/who'sComming" component={WhosComming} />
-        <Route exact path="/confirm/confirm&pay" component={ConfirmAndPay} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/login" component={Login} />
+        <PrivateRoute
+          exact
+          path="/confirm/rules"
+          component={ReviewHouseRules}
+        />
+        <PrivateRoute
+          exact
+          path="/confirm/who'sComming"
+          component={WhosComming}
+        />
+        <PrivateRoute
+          exact
+          path="/confirm/confirm&pay"
+          component={ConfirmAndPay}
+        />
+        <PublicRoute exact path="/signup" component={SignUp} />
+        <PublicRoute exact path="/login" component={Login} />
         <Route exact path="*" component={PageNotFound} />
       </Switch>
     </AuthProvider>

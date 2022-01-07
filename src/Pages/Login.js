@@ -1,33 +1,34 @@
-import { Button } from "@material-ui/core";
+import { Button, CircularProgress } from "@material-ui/core";
 import cogoToast from "cogo-toast";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
 import Layout from "../Layout/Layout";
 
-const Login = ({ history }) => {
+const Login = ({ location, history, replace }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState();
 
   const { login } = useAuth();
 
-  const handleSubmit = (e) => {
+  // Redirect
+  let { from } = location.state || { from: { pathname: "/" } };
+
+  // Submit user information
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    cogoToast
-      .loading("Loading....", { position: "bottom-right" })
-      .then(async () => {
-        try {
-          await login(email, password);
-          history.push("/");
-        } catch (error) {
-          if (error) {
-            cogoToast.error(error.message, {
-              position: "bottom-right",
-            });
-          }
-          console.log(error);
-        }
+    try {
+      setLoading(true);
+      await login(email, password);
+      history.replace(from);
+      setLoading(false);
+    } catch (error) {
+      cogoToast.error(error.message, {
+        position: "bottom-right",
       });
+      setLoading(false);
+    }
   };
   return (
     <Layout>
@@ -67,7 +68,13 @@ const Login = ({ history }) => {
               </div>
 
               <div className="form__btn">
-                <Button type="submit">Login</Button>
+                <Button variant="contained" type="submit" disabled={loading}>
+                  {loading ? (
+                    <CircularProgress color="secondary" size={28} />
+                  ) : (
+                    "Login"
+                  )}
+                </Button>
               </div>
             </form>
             <span className="form__bottom--text">

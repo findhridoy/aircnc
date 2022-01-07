@@ -39,6 +39,12 @@
   }
 }
 
+@media screen and (max-width: 576px) {
+  .result__section {
+    margin-top: 6.5rem;
+  }
+}
+
 /* ------------- For Medium Device ------------- */
 @media screen and (min-width: 576px) {
   .result__address ul {

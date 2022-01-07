@@ -4,16 +4,16 @@
   top: 0;
   left: 0;
   width: 100%;
-  box-shadow: var(--shadow);
   border-bottom: var(--border);
-  border-color: transparent;
+  border-color: var(--gray-alt-color);
   background-color: var(--white-color);
   z-index: 99;
   transition: var(--transition);
 }
 .show__header {
   border-bottom: var(--border);
-  border-color: var(--gray-alt-color);
+  border-color: transparent;
+  box-shadow: var(--shadow);
 }
 .nav {
   display: flex;
@@ -38,7 +38,7 @@
   justify-content: center;
   border-radius: 8px;
   padding: var(--x-0-5) var(--x-1);
-  display: none;
+  background-color: var(--white-color);
 }
 @media screen and (max-width: 576px) {
   .nav__search {
@@ -46,6 +46,7 @@
     left: 0;
     top: var(--header-height);
     width: 100%;
+    border-radius: 0;
   }
 }
 
@@ -75,15 +76,17 @@
   margin-top: 0;
 }
 .nav__item .MuiButton-root,
-.signup__button .MuiButton-root {
+.signup__button .MuiButton-root,
+.logout__button .MuiButton-root {
   width: initial;
-  padding: var(--x-0-5) var(--x-1);
+  padding: var(--x-0-5) var(--x-1-5) !important;
   border-radius: var(--x-1-5);
 }
-.signup__button .MuiButton-root {
+.logout__button .MuiButton-root {
   padding: var(--x-0-5) var(--x-1-25) !important;
 }
-.signup__button {
+.signup__button,
+.nav__profile {
   margin-top: 0;
   margin-left: var(--x-1);
 }
@@ -108,13 +111,16 @@
     flex-direction: column;
     margin-top: calc(var(--header-height) + 1rem);
   }
-  .nav__item .MuiButton-root,
-  .signup__button .MuiButton-root {
+  .nav__item .MuiButton-root {
     width: 200px;
   }
   .signup__button {
     margin-top: var(--x-0-75);
     margin-left: 0;
+  }
+  .nav__profile {
+    margin-top: var(--x-0-75);
+    flex-direction: column;
   }
 }
 .nav__link {
@@ -127,28 +133,24 @@
   text-transform: none;
 }
 .signup__button .MuiButton-root {
-  padding: var(--x-0-5) 0;
   background-image: var(--gradient-color);
 }
-.signup__button .MuiButton-label {
+.MuiPaper-root {
+  margin-top: 40px !important;
+  cursor: pointer;
+}
+
+.signup__button .MuiButton-label,
+.logout__button .MuiButton-label {
   font-weight: var(--semi-bold);
   font-family: var(--Poppins-font);
   color: var(--white-color);
 }
-/*
-.logout__button {
+.nav__profile {
   display: flex;
+  gap: var(--x-0-75);
+  align-items: center;
 }
-.logout__button .MuiAvatar-root {
-  margin: 0 10px;
+.nav__profile .MuiAvatar-root {
+  background: var(--green-color) !important;
 }
-.signup__button .MuiButton-root {
-  border-radius: 30px !important;
-  background: var(--g-color);
-  width: 80px;
-  margin-left: 10px;
-}
-.signup__button .MuiButton-label {
-  color: var(--white);
-  text-transform: none;
-} */
