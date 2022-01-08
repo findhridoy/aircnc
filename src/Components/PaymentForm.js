@@ -6,29 +6,37 @@ import {
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
+import cogoToast from "cogo-toast";
 import React, { useEffect, useState } from "react";
 import { PayPalButton } from "react-paypal-button-v2";
 import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useAuth } from "../Context/AuthContext";
 import data from "../Data/Data";
 import paypal from "../Images/Icons/paypal.svg";
 
 const PaymentForm = () => {
+  //State
+  const [exectData, setExecetData] = useState({});
+  const [checkedValue, setCheckedValue] = useState("card");
+
+  //Stripe
   const stripe = useStripe();
   const elements = useElements();
-  // get data from redux
-  // const results = useSelector((res) => res.data);
-  // const { locationName, guestCount, checkIn, checkOut } = data;
-  // let diffDate = new Date(checkOut - checkIn);
-  const [content, setContent] = useState([]);
+
+  // Context
+  const { locationData, userInfo } = useAuth();
+
+  let diffDate = new Date(locationData?.checkOut - locationData?.checkIn);
+
   const { id } = useParams();
+  const history = useHistory();
+
   useEffect(() => {
     data
       .filter((res) => res.id == id)
-      .map((allData, index) => setContent(allData));
+      .map((resData) => setExecetData({ ...resData }));
   }, [id]);
-  const { title, price } = content;
-  // State
-  const [checkedValue, setCheckedValue] = useState("card");
 
   // Radio Button
   const handleRadioChange = (event) => {
@@ -47,10 +55,14 @@ const PaymentForm = () => {
     });
     if (checkedValue === "card") {
       if (error) {
-        alert(error.message);
+        cogoToast.error(error.message, {
+          position: "bottom-right",
+        });
       } else {
         handleUserConfirmData(paymentMethod.id);
-        alert("Your payment was successfull");
+        cogoToast.success("Your payment was successfull", {
+          position: "bottom-right",
+        });
       }
     }
   };
@@ -58,41 +70,40 @@ const PaymentForm = () => {
   // Paypal Payment
   const handlePaypalPayment = (details, data) => {
     handleUserConfirmData(data.orderID);
-    alert.success("Transaction completed by " + details.payer.name.given_name, {
-      position: "bottom-right",
-    });
+    cogoToast.success(
+      "Transaction completed by " + details.payer.name.given_name,
+      {
+        position: "bottom-right",
+      }
+    );
   };
 
   const handleUserConfirmData = (orderId) => {
-    // const userConfirmData = {
-    //   name: loggedInUser.displayName,
-    //   email: loggedInUser.email,
-    //   title: title,
-    //   location: locationName,
-    //   orderId: orderId,
-    //   checkIn: checkIn,
-    //   checkOut: checkOut,
-    //   guests: guestCount,
-    //   totalPrice: price * (diffDate.getUTCDate() - 1) + 10 + 21,
-    // };
-    // fetch("http://localhost:5000/api/confirmData", {
-    //   method: "POST",
-    //   body: JSON.stringify(userConfirmData),
-    //   headers: {
-    //     "Content-type": "application/json; charset=UTF-8",
-    //   },
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     toast.success("Your payment was successfull", {
-    //       position: "bottom-right",
-    //     });
-    //   })
-    //   .catch((err) => {
-    //     toast.error("Somthing was wrong!", {
-    //       position: "bottom-right",
-    //     });
-    //   });
+    try {
+      const userConfirmData = {
+        name: userInfo?.displayName,
+        email: userInfo?.email,
+        title: exectData?.title,
+        location: locationData?.locationName,
+        orderId: orderId,
+        checkIn: locationData?.checkIn,
+        checkOut: locationData?.checkOut,
+        guests: locationData?.guestCount,
+        totalPrice:
+          exectData?.price * (locationData ? diffDate.getUTCDate() - 1 : 0) +
+          (locationData ? 10 : 0) +
+          (locationData ? 10 : 0),
+      };
+      localStorage.setItem("confrimData", JSON.stringify(userConfirmData));
+      cogoToast.success("Your payment was successfull", {
+        position: "bottom-right",
+      });
+      history.push("/profile");
+    } catch (error) {
+      cogoToast.error("Somthing was wrong!", {
+        position: "bottom-right",
+      });
+    }
   };
 
   return (
@@ -184,7 +195,7 @@ const PaymentForm = () => {
           </div>
         ) : (
           <div className="payment__button">
-            <Button type="submit" disabled={!stripe}>
+            <Button type="submit" disabled={!stripe} variant="contained">
               Continue to pay
             </Button>
           </div>

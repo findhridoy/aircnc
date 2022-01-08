@@ -6,7 +6,7 @@
   margin-top: var(--x-0-75);
 }
 .confirmHotel__guest {
-  margin-bottom: var(--x-0-25);
+  margin-bottom: -2.2rem;
 }
 .confirmHotel__date_box {
   display: flex;

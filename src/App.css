@@ -155,8 +155,7 @@ section {
   /* padding: var(--x-0-5) var(--x-1-5);
   font-size: var(--normal-font);
   font-weight: var(--semi-bold);
-  transition: var(--transition);
-} */
+  transition: var(--transition); */
 }
 .button:hover {
   /* color: var(--text-color);

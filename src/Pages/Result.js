@@ -1,20 +1,21 @@
 import { Button } from "@material-ui/core";
-import React from "react";
+import React, { useEffect } from "react";
 import Moment from "react-moment";
 import ResultCard from "../Components/ResultCard";
 import ResultMap from "../Components/ResultMap";
+import { useAuth } from "../Context/AuthContext";
 import data from "../Data/Data";
 import Layout from "../Layout/Layout";
 
-function Result() {
-  // const {
-  //   locationName,
-  //   locationLat,
-  //   locationLng,
-  //   guestCount,
-  //   checkIn,
-  //   checkOut,
-  // } = results;
+const Result = ({ history }) => {
+  const { locationData: location } = useAuth();
+
+  useEffect(() => {
+    if (!location) {
+      history.push("/");
+    }
+  }, [location, history]);
+
   return (
     <Layout>
       <section className="result__section">
@@ -23,11 +24,12 @@ function Result() {
             <div className="result__data">
               <div className="result__address">
                 <p>
-                  252 stays, <Moment format="MMM DD">{"checkIn"}</Moment>-
-                  <Moment format="DD">{"checkOut"}</Moment>, {"guestCount"}{" "}
-                  guests
+                  {data?.length} stays,{" "}
+                  <Moment format="MMM DD">{location?.checkIn}</Moment>-
+                  <Moment format="DD">{location?.checkOut}</Moment>,{" "}
+                  {location?.guestCount} guests
                 </p>
-                <h3>Stay in {"locationName"}</h3>
+                <h3>Stay in {location?.locationName.slice(0, 25)}...</h3>
                 <ul>
                   <li>
                     <Button>Cancellation flexibility</Button>
@@ -44,23 +46,19 @@ function Result() {
                 </ul>
               </div>
               <div className="result__hotel">
-                {data.map((hData, index) => (
-                  <ResultCard hotelData={hData} />
+                {data.map((hData) => (
+                  <ResultCard hotelData={hData} key={hData.id} />
                 ))}
               </div>
             </div>
             <div className="result__map">
-              <ResultMap
-              // lat={"locationLat"}
-              // lng={"locationLng"}
-              // name={"locationName"}
-              />
+              <ResultMap />
             </div>
           </div>
         </div>
       </section>
     </Layout>
   );
-}
+};
 
 export default Result;

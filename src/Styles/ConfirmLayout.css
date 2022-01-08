@@ -29,8 +29,8 @@
     /* max-width: 580px; */
   }
   .confirmLayout__hotel--card {
-    max-width: 350px;
-    margin: 0 auto;
+    width: 350px;
+    justify-self: center;
   }
 }
 

@@ -1,9 +1,13 @@
 import { Button } from "@material-ui/core";
 import React from "react";
+import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import MultiStepNav from "../Components/MultiStepNav";
 import ConfirmLayout from "../Layout/ConfirmLayout";
 
-function WhosComming({ handleNext }) {
+function WhosComming() {
+  const { id } = useParams();
+  const history = useHistory();
   return (
     <ConfirmLayout>
       <MultiStepNav step1 step2 />
@@ -23,7 +27,12 @@ function WhosComming({ handleNext }) {
           placeholder="Hello Rowdra! Can't wait to spend 4 night is your home"
         ></textarea>
         <br />
-        <Button onClick={handleNext}>Continue</Button>
+        <Button
+          onClick={() => history.push(`/confirm/confirm&pay/${id}`)}
+          variant="contained"
+        >
+          Continue
+        </Button>
       </div>
     </ConfirmLayout>
   );

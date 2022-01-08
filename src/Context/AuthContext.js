@@ -18,6 +18,7 @@ export const useAuth = () => {
 const AuthProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState();
   const [loading, setLoading] = useState(true);
+  const [locationData, setLocationData] = useState();
 
   //   Signup User
   const signup = async (email, password, name) => {
@@ -46,7 +47,7 @@ const AuthProvider = ({ children }) => {
       setUserInfo(user);
       setLoading(false);
     });
-    return unsubscribe;
+    return () => unsubscribe;
   }, []);
 
   const value = {
@@ -54,6 +55,8 @@ const AuthProvider = ({ children }) => {
     login,
     logout,
     userInfo,
+    locationData,
+    setLocationData,
   };
   return (
     <AuthContext.Provider value={value}>

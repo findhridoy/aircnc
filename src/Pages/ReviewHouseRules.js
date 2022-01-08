@@ -7,18 +7,24 @@ import SmokingRoomsIcon from "@material-ui/icons/SmokingRooms";
 import WarningIcon from "@material-ui/icons/Warning";
 import React, { useState } from "react";
 import Moment from "react-moment";
+import { useHistory, useParams } from "react-router-dom";
 import MultiStepNav from "../Components/MultiStepNav";
-import data from "../Data/Data";
+import { useAuth } from "../Context/AuthContext";
 import ConfirmLayout from "../Layout/ConfirmLayout";
 
-function ReviewHouseRules({ handleNext }) {
-  const { checkIn, checkOut, locationName } = data;
-  let diffDate = new Date(checkOut - checkIn);
+function ReviewHouseRules() {
+  const { locationData } = useAuth();
+
+  let diffDate = new Date(locationData?.checkOut - locationData?.checkIn);
 
   const [readMore, setReadMore] = useState(false);
+
   const handleReadMore = () => {
     setReadMore(!readMore);
   };
+
+  const { id } = useParams();
+  const history = useHistory();
   return (
     <ConfirmLayout>
       <MultiStepNav step1 />
@@ -26,42 +32,45 @@ function ReviewHouseRules({ handleNext }) {
         <h2>Review house rules</h2>
         <div className="reviewHouse__stayDetails">
           <h4>
-            {diffDate.getUTCDate() - 1} nights in {locationName}
+            {locationData ? diffDate.getUTCDate() - 1 : 0} nights in
+            {locationData?.locationName.slice(0, 12)}...
           </h4>
           <div className="reviewHouse__date">
             <div className="reviewHouse__fromDate">
               <div className="fromDate__date">
                 <p>
-                  <Moment format="MMM">{checkIn}</Moment>
+                  <Moment format="MMM">{locationData?.checkIn}</Moment>
                 </p>
                 <p>
-                  <Moment format="DD">{checkIn}</Moment>
+                  <Moment format="DD">{locationData?.checkIn}</Moment>
                 </p>
               </div>
               <div className="fromDate__day_time">
                 <p>
-                  <Moment format="dddd">{checkIn}</Moment> check-in
+                  <Moment format="dddd">{locationData?.checkIn}</Moment>{" "}
+                  check-in
                 </p>
                 <p>
-                  After <Moment format="LT">{checkIn}</Moment>
+                  After <Moment format="LT">{locationData?.checkIn}</Moment>
                 </p>
               </div>
             </div>
             <div className="reviewHouse__toDate">
               <div className="toDate__date">
                 <p>
-                  <Moment format="MMM">{checkOut}</Moment>
+                  <Moment format="MMM">{locationData?.checkOut}</Moment>
                 </p>
                 <p>
-                  <Moment format="DD">{checkOut}</Moment>
+                  <Moment format="DD">{locationData?.checkOut}</Moment>
                 </p>
               </div>
               <div className="toDate__day_time">
                 <p>
-                  <Moment format="dddd">{checkOut}</Moment> check-out
+                  <Moment format="dddd">{locationData?.checkOut}</Moment>{" "}
+                  check-out
                 </p>
                 <p>
-                  After <Moment format="LT">{checkOut}</Moment>
+                  After <Moment format="LT">{locationData?.checkOut}</Moment>
                 </p>
               </div>
             </div>
@@ -116,7 +125,12 @@ function ReviewHouseRules({ handleNext }) {
               )}
             </button>
           </ul>
-          <Button onClick={handleNext}>Agree and continue</Button>
+          <Button
+            onClick={() => history.push(`/confirm/who'sComming/${id}`)}
+            variant="contained"
+          >
+            Agree and continue
+          </Button>
         </div>
       </div>
     </ConfirmLayout>

@@ -7,15 +7,16 @@ import {
   KeyboardDatePicker,
   MuiPickersUtilsProvider,
 } from "@material-ui/pickers";
+import cogoToast from "cogo-toast";
 import "date-fns";
 import React, { useState } from "react";
 import MapboxAutocomplete from "react-mapbox-autocomplete";
 import { useHistory } from "react-router-dom";
+import { useAuth } from "../Context/AuthContext";
 import AccordionCount from "./AccordionCount";
 
-function SearchForm() {
-  const history = useHistory();
-  // All State
+const SearchForm = () => {
+  // All Local State
   const [locationName, setLocationName] = useState("");
   const [locationLat, setLocaitonLat] = useState("");
   const [locationLng, setLocaitonLng] = useState("");
@@ -26,31 +27,22 @@ function SearchForm() {
   const [babieCount, setBabieCount] = useState(0);
   const [guestCount, setGuestCount] = useState(0);
 
-  // Location Suggetion Function Start
+  // Location Suggetion Function
   const suggestionSelect = (result, lat, lng) => {
     setLocationName(result);
     setLocaitonLat(lat);
     setLocaitonLng(lng);
   };
-  // const onPlaceSelect = (place) => {
-  //   console.log(place);
-  // };
-  // Location Suggetion Function End
 
-  //Material Date Function Start
+  //Material Date Function
   const handleCheckInDate = (date) => {
-    // const newDates = { ...selectedDate };
-    // newDates.checkIn = date;
     setCheckIn(date);
   };
   const handleCheckOutDate = (date) => {
-    // const newDates = { ...selectedDate };
-    // newDates.checkOut = date;
     setCheckOut(date);
   };
-  //Material Date Function End
 
-  // Count Function Start
+  // Count Function
   const handleAdultCount = (count) => {
     if (count && adultCount < 5) {
       setAdultCount(adultCount + 1);
@@ -81,15 +73,21 @@ function SearchForm() {
     setChildCount(0);
     setBabieCount(0);
   };
-  // Count Function End
 
-  // Search Function Start
+  // Custom hooks
+  // const { setLocationData } = useLocationData();
+  const { setLocationData } = useAuth();
+
+  const history = useHistory();
+  // Search Function`
   const handleSearch = () => {
     if (locationName === "") {
-      alert("Please fill the location field");
+      cogoToast.warn("Please fill the location field.", {
+        position: "bottom-right",
+      });
     }
     if (locationName !== "") {
-      const newData = {
+      const locatData = {
         locationName,
         locationLat,
         locationLng,
@@ -97,10 +95,10 @@ function SearchForm() {
         checkIn,
         checkOut,
       };
+      setLocationData({ ...locatData });
       history.push("/result");
     }
   };
-  // Search Function End
   return (
     <>
       <form action="" className="search__form">
@@ -189,13 +187,13 @@ function SearchForm() {
           </Accordion>
         </div>
         <div className="search__button">
-          <Button onClick={handleSearch}>
+          <Button onClick={handleSearch} variant="contained">
             <SearchIcon /> Search
           </Button>
         </div>
       </form>
     </>
   );
-}
+};
 
 export default SearchForm;

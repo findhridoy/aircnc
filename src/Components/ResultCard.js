@@ -2,8 +2,9 @@ import StarIcon from "@material-ui/icons/Star";
 import React from "react";
 import { useHistory } from "react-router";
 
-function ResultCard({ openModal, hotelData }) {
+function ResultCard({ hotelData }) {
   const { id, title, images, guests, baths, beds, price, rating } = hotelData;
+
   const history = useHistory();
   const handleRoute = () => {
     history.push(`/details/${id}`);

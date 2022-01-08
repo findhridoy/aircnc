@@ -2,7 +2,6 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import "../../node_modules/swiper/swiper.min.css";
 import data from "../Data/Data";
 import SearchForm from "./SearchForm";
 import SwiperCard from "./SwiperCard";
@@ -41,19 +40,14 @@ function Banner() {
                   768: {
                     slidesPerView: 3,
                   },
-                  // when window width is >= 992px
-                  // 992: {
-                  //   slidesPerView: 4,
-                  // },
                   // when window width is >= 1200px
                   1200: {
                     slidesPerView: 4,
-                    // spaceBetween: 300,
                   },
                 }}
               >
-                {data.map((hotelData, index) => (
-                  <SwiperSlide key={index}>
+                {data.map((hotelData) => (
+                  <SwiperSlide key={hotelData.id}>
                     <SwiperCard hotelData={hotelData} />
                   </SwiperSlide>
                 ))}
@@ -81,18 +75,10 @@ function Banner() {
                   768: {
                     slidesPerView: 3,
                   },
-                  // // when window width is >= 992px
-                  // 992: {
-                  //   slidesPerView: 4,
-                  // },
-                  // // when window width is >= 1200px
-                  // 1200: {
-                  //   slidesPerView: 5,
-                  // },
                 }}
               >
-                {data.map((hotelData, index) => (
-                  <SwiperSlide key={index}>
+                {data.map((hotelData) => (
+                  <SwiperSlide key={hotelData.id}>
                     <SwiperCard hotelData={hotelData} />
                   </SwiperSlide>
                 ))}

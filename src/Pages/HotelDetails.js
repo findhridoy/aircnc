@@ -9,46 +9,37 @@ import StarIcon from "@material-ui/icons/Star";
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import ConfirmHotelAccordion from "../Components/ConfirmHotelAccordion";
-// import ConfirmHotelAccordion from "../Components/ConfirmHotelAccordion";
 import data from "../Data/Data";
 import Layout from "../Layout/Layout";
 
 function HotelDetails() {
-  const [content, setContent] = useState([]);
+  const [exectData, setExecetData] = useState({});
   const [readMore, setReadMore] = useState(false);
+
   const { id } = useParams();
+
   useEffect(() => {
     data
-      .filter((res) => res.id === id)
-      .map((allData, index) => setContent(allData));
+      .filter((res) => res.id == id)
+      .map((resData) => setExecetData({ ...resData }));
   }, [id]);
-  const {
-    title,
-    images,
-    guests,
-    baths,
-    beds,
-    price,
-    rating,
-    description,
-    moreDescription,
-  } = content;
 
-  console.log(images);
   const handleReadMore = () => {
     setReadMore(!readMore);
   };
+
   const history = useHistory();
+
   const handleRoute = () => {
-    history.push(`/confirm/${id}`);
+    history.push(`/confirm/rules/${id}`);
   };
   return (
     <Layout>
       <div className="hotelDetails">
-        {images && (
+        {exectData?.images && (
           <div className="hotelDetails__image">
-            <img src={images.thumb} alt="hotel img" />
-            <img src={images.bImg} alt="hotel img" />
+            <img src={exectData.images?.thumb} alt="hotel img" />
+            <img src={exectData.images?.bImg} alt="hotel img" />
           </div>
         )}
         <div className="container">
@@ -56,13 +47,13 @@ function HotelDetails() {
             <div className="hotelDetails__content">
               <div className="hotelDetails__box1">
                 <div className="box1__data">
-                  <h1>{title}</h1>
+                  <h1>{exectData?.title}</h1>
                   <p>Dhaka, Bangladesh</p>
                   <p>
-                    <span>{guests} guests</span>
-                    <span>{beds} bedrooms</span>
-                    <span>{beds} beds</span>
-                    <span>{baths} baths</span>
+                    <span>{exectData?.guests} guests</span>
+                    <span>{exectData?.beds} bedrooms</span>
+                    <span>{exectData?.beds} beds</span>
+                    <span>{exectData?.baths} baths</span>
                   </p>
                 </div>
               </div>
@@ -107,9 +98,9 @@ function HotelDetails() {
               </div>
               <div className="hotelDetails__box3">
                 <div className="box3__data">
-                  <p>{description}</p>
+                  <p>{exectData?.description}</p>
                   <br />
-                  {readMore ? <p>{moreDescription}</p> : ""}
+                  {readMore ? <p>{exectData?.moreDescription}</p> : ""}
                   <button onClick={handleReadMore}>
                     {readMore ? (
                       <span>
@@ -127,7 +118,7 @@ function HotelDetails() {
                     <h4>Reviews</h4>
                     <p>
                       <StarIcon />
-                      {rating}
+                      {exectData?.rating}
                       <span>(20 reviews)</span>
                     </p>
                   </div>
@@ -138,15 +129,15 @@ function HotelDetails() {
               <div className="hotelDetails__confirm--card">
                 <div className="hotelDetails__rating">
                   <h4>
-                    ${price}/ <span>night</span>
+                    $ {exectData?.price} <span>night</span>
                   </h4>
                   <p>
                     <StarIcon />
-                    {rating}
+                    {exectData?.rating}
                     <span>(20 reviews)</span>
                   </p>
                 </div>
-                <ConfirmHotelAccordion price={price} />
+                <ConfirmHotelAccordion price={exectData?.price} />
                 <div className="hotelDetails__reserve_button">
                   <Button onClick={handleRoute}>Reserve</Button>
                   <p>You won't be charged yet</p>

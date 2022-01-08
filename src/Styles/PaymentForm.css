@@ -22,6 +22,7 @@
 .paypal__title_section {
   display: flex;
   gap: var(--x-1);
+  align-items: flex-start;
 }
 .paypal__title_section {
   margin-bottom: 0;
@@ -47,6 +48,9 @@
 .craditCard__image {
   display: flex;
   gap: 0.2rem;
+}
+.craditCard__image img {
+  width: 1.8rem;
 }
 .paypal__image img {
   width: 3.4375rem;

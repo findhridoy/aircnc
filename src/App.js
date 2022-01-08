@@ -23,17 +23,17 @@ const App = () => {
         <Route exact path="/details/:id" component={HotelDetails} />
         <PrivateRoute
           exact
-          path="/confirm/rules"
+          path="/confirm/rules/:id"
           component={ReviewHouseRules}
         />
         <PrivateRoute
           exact
-          path="/confirm/who'sComming"
+          path="/confirm/who'sComming/:id"
           component={WhosComming}
         />
         <PrivateRoute
           exact
-          path="/confirm/confirm&pay"
+          path="/confirm/confirm&pay/:id"
           component={ConfirmAndPay}
         />
         <PublicRoute exact path="/signup" component={SignUp} />

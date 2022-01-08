@@ -9,11 +9,11 @@ import Moment from "react-moment";
 import { NavLink, useParams } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
 
-function Header({ params }) {
+function Header() {
   const [showMenu, setShowMenu] = useState(false);
   const [showHeader, setShowHeader] = useState(false);
 
-  const { userInfo, logout } = useAuth();
+  const { userInfo, logout, locationData: location } = useAuth();
 
   const { id } = useParams();
 
@@ -48,12 +48,12 @@ function Header({ params }) {
         {(window.location.pathname === "/result" ||
           window.location.pathname === `/details/${id}`) && (
           <div className="nav__search">
-            <li>Dhaka</li>
+            <li>{location?.locationName.slice(0, 12)}...</li>
             <li>
-              <Moment format="MMM DD">{new Date()}</Moment>-
-              <Moment format="DD">{new Date()}</Moment>
+              <Moment format="MMM DD">{location?.checkIn}</Moment>-
+              <Moment format="DD">{location?.checkOut}</Moment>
             </li>
-            <li>3 Guests</li>
+            <li>{location?.guestCount} Guests</li>
             <SearchIcon />
           </div>
         )}
@@ -102,7 +102,7 @@ function Header({ params }) {
                 <Button
                   variant="contained"
                   color="secondary"
-                  onClick={() => logout()}
+                  onClick={handleLogout}
                 >
                   Logout
                 </Button>

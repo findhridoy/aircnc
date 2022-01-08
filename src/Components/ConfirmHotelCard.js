@@ -5,33 +5,34 @@ import data from "../Data/Data";
 import ConfirmHotelAccordion from "./ConfirmHotelAccordion";
 
 function ConfirmHotelCard() {
-  const [content, setContent] = useState([]);
+  const [exectData, setExecetData] = useState({});
 
   const { id } = useParams();
+
   useEffect(() => {
     data
-      .filter((res) => res.id == "1")
-      .map((allData, index) => setContent(allData));
+      .filter((res) => res.id == id)
+      .map((resData) => setExecetData({ ...resData }));
   }, [id]);
-  const { title, images, price, rating } = content;
+
   return (
     <div className="confirmHotel__card">
       <div className="confirmHotel__content">
         <div className="confirmHotel__data">
-          <h4>{title}</h4>
+          <h4>{exectData?.title}</h4>
           <p>
             <StarIcon />
-            {rating}
+            {exectData?.rating}
             <span>(20 reviews)</span>
           </p>
         </div>
-        {images && (
+        {exectData?.images && (
           <div className="confirmHotel__image">
-            <img src={images.thumb} alt="Card Img" />
+            <img src={exectData?.images.thumb} alt="Card Img" />
           </div>
         )}
       </div>
-      <ConfirmHotelAccordion price={price} />
+      <ConfirmHotelAccordion price={exectData?.price} />
     </div>
   );
 }

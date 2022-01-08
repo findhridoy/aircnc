@@ -112,7 +112,7 @@
     margin-top: calc(var(--header-height) + 1rem);
   }
   .nav__item .MuiButton-root {
-    width: 200px;
+    width: 210px;
   }
   .signup__button {
     margin-top: var(--x-0-75);
