@@ -6,7 +6,6 @@
 
 - Some demo rooms are here for the user interface. and these data come from data.json.
 - Search any Location and see that in Maps.
-- Time format 12-hour (am to pm).
 - Users can create an account and log in immediately. (Signup, SignIn)
 - Also included google login system.
 - Users can book a room by using his/her credit card. (Simple way)
