@@ -1,0 +1,42 @@
+.confirmLayout__section {
+  margin-top: -3.5rem;
+}
+.confirmLayout__multistep--section {
+  position: relative;
+}
+/* ====================== MEDIA QUERIES =====================
+/* ------------- For Small Device ------------- */
+@media screen and (max-width: 340px) {
+}
+
+/* ------------- For Medium Device ------------- */
+@media screen and (min-width: 576px) {
+  .confirmLayout__multistep--section {
+    max-width: 25rem;
+    margin: 0 auto;
+  }
+}
+
+/* ------------- For Tablet, Laptop ------------- */
+@media screen and (min-width: 768px) {
+  .confirmLayout__content {
+    display: grid;
+    column-gap: var(--x-1);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .confirmLayout__multistep--section {
+    max-width: 31.25rem;
+    /* max-width: 580px; */
+  }
+  .confirmLayout__hotel--card {
+    width: 21.875rem;
+    justify-self: center;
+  }
+}
+
+/* ------------- For Large Device ------------- */
+@media screen and (min-width: 1024px) {
+  .confirmLayout__content {
+    column-gap: var(--x-2);
+  }
+}

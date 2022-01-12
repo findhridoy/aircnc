@@ -1,0 +1,122 @@
+.sl__form {
+  max-width: 22.5rem;
+  margin: var(--x-0-5) auto;
+}
+.sl__title {
+  font-size: var(--h1-font);
+  font-weight: var(--semi-bold);
+  text-align: center;
+}
+.form__text {
+  display: block;
+  color: var(--gray-alt-color);
+  font-weight: var(--semi-bold);
+  font-size: var(--smaller-font);
+  font-family: var(--Poppins-font);
+  text-transform: uppercase;
+  margin-top: var(--x-0-75);
+}
+.form__control {
+  margin-top: var(--x-0-25);
+  width: 100%;
+  padding: var(--x-0-75) var(--x-0-5);
+  height: var(--x-2-5);
+  border: var(--border);
+  border-color: var(--gray-alt-color);
+  color: var(--gray-color);
+  font-size: var(--small-font);
+}
+.form__control::placeholder {
+  color: var(--gray-alt-color);
+}
+.form__control:focus {
+  box-shadow: rgba(50, 50, 93, 0.109804) 0 0.25rem 0.375rem,
+    rgba(0, 0, 0, 0.0784314) 0 0.0625rem 0.1875rem;
+  -webkit-transition: all 150ms ease;
+  transition: all 150ms ease;
+}
+.form__btn .MuiButton-root {
+  background: var(--gradient-color) !important;
+  padding: var(--x-0-75) var(--x-1-75);
+  margin-top: var(--x-1-5);
+  width: 100%;
+}
+.form__btn .MuiButton-label {
+  color: var(--white-color);
+  text-transform: none;
+  font-size: var(--normal-font);
+}
+.form__bottom--text {
+  font-size: var(--small-font);
+  text-align: center;
+  display: block;
+  margin-top: var(--x-1);
+  color: var(--gray-color);
+}
+.form__bottom--link {
+  font-weight: var(--semi-bold);
+  color: var(--dark-color);
+}
+.form__bottom--link:hover {
+  text-decoration: underline;
+}
+
+.sl__bottom--section {
+  margin-top: var(--x-0-5);
+}
+.sl__or--text {
+  font-size: var(--h3-font);
+  font-weight: var(--semi-bold);
+  color: var(--dark-color);
+  position: relative;
+  text-align: center;
+}
+.sl__or--text::after,
+.sl__or--text::before {
+  position: absolute;
+  content: "";
+  width: 45%;
+  height: 0.01rem;
+  background-color: var(--gray-alt-color);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sl__or--text::before {
+  left: 0;
+}
+.sl__or--text::after {
+  right: 0;
+}
+.google__button {
+  display: flex;
+  border: var(--border);
+  border-color: var(--blue-color);
+  margin-top: var(--x-0-75);
+}
+.google__button img {
+  width: 3.125rem;
+  background-color: var(--white-color);
+  padding: var(--x-0-5);
+}
+
+.google__button .MuiButton-root {
+  width: 100%;
+  background: var(--blue-color) !important;
+  border-radius: 0 !important;
+}
+.google__button .MuiButton-label {
+  color: var(--white-color);
+  text-transform: none;
+  font-size: var(--normal-font);
+}
+/* ====================== MEDIA QUERIES =====================
+/* ------------- For Large Device ------------- */
+@media screen and (min-width: 1024px) {
+  .sl__form {
+    max-width: 26.25rem;
+    margin: 0 auto;
+  }
+  .form__control {
+    height: var(--x-2-75);
+  }
+}

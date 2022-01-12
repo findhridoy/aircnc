@@ -1,0 +1,85 @@
+.confirmHotel__date,
+.confirmHotel__guest {
+  font-weight: var(--semi-bold);
+  font-size: var(--smaller-font);
+  color: var(--gray-color);
+  margin-top: var(--x-0-75);
+}
+.confirmHotel__guest {
+  margin-bottom: -2.2rem;
+}
+.confirmHotel__date_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: var(--border);
+  border-color: var(--gray-alt-color);
+  border-radius: var(--x-0-25);
+  padding: var(--x-0-5) var(--x-0-75);
+  margin-top: var(--x-0-25);
+}
+
+.confirmHotel__date_box p {
+  font-weight: var(--medium);
+  font-size: var(--small-font);
+  color: var(--dark-color);
+}
+.confirmHotel__date_box .MuiSvgIcon-root {
+  font-size: var(--h3-font);
+}
+
+/* Hotel Confirm Accorodian */
+.confrimHotel__accordion .MuiAccordion-root {
+  box-shadow: none !important;
+}
+.confrimHotel__accordion .MuiAccordionSummary-root {
+  border: var(--border) !important;
+  border-color: var(--gray-alt-color) !important;
+  border-radius: var(--x-0-25) !important;
+  padding: 0 var(--x-0-75);
+}
+.confrimHotel__accordion .MuiAccordionSummary-root.Mui-expanded {
+  min-height: 0 !important;
+}
+.confrimHotel__accordion .MuiAccordionSummary-content {
+  flex-direction: column;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.confrimHotel__accordion .MuiAccordionSummary-content p {
+  font-weight: var(--medium);
+  font-size: var(--small-font);
+  color: var(--dark-color);
+}
+
+.confrimHotel__accordion .MuiAccordionDetails-root {
+  flex-direction: column;
+  margin-top: var(--x-0-75);
+  padding: 0 !important;
+}
+.confirmHotel__perNightPrice,
+.confirmHotel__cleaningFee,
+.confirmHotel__serviceFee,
+.confirmHotel__totalPrice {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--x-0-5) var(--x-0-75);
+  border-bottom: var(--border);
+  border-color: var(--gray-alt-color);
+}
+.confirmHotel__totalPrice {
+  padding-bottom: 0;
+  border: none;
+}
+.confirmHotel__perNightPrice p,
+.confirmHotel__cleaningFee p,
+.confirmHotel__serviceFee p {
+  font-weight: var(--medium);
+  font-size: var(--smaller-font);
+  color: var(--gray-color);
+}
+.confirmHotel__totalPrice p {
+  font-weight: var(--bold);
+  font-size: var(--small-font);
+  color: var(--dark-color);
+}

@@ -1,0 +1,116 @@
+.reviewHouse {
+  margin-top: var(--x-2);
+}
+.reviewHouse h2 {
+  font-weight: var(--semi-bold);
+  font-size: var(--h2-font);
+  color: var(--dark-color);
+}
+.reviewHouse__stayDetails {
+  margin-top: var(--x-0-75);
+  border-bottom: var(--border);
+  border-color: var(--gray-alt-color);
+}
+.reviewHouse__stayDetails h4 {
+  font-weight: var(--semi-bold);
+  font-size: var(--normal-font);
+  color: var(--dark-color);
+}
+.reviewHouse__date {
+  display: flex;
+  margin-top: var(--x-0-75);
+  align-items: center;
+  gap: var(--x-1);
+}
+.reviewHouse__fromDate,
+.reviewHouse__toDate {
+  display: flex;
+  gap: var(--x-0-5);
+  align-items: flex-start;
+}
+.reviewHouse__fromDate .fromDate__date,
+.reviewHouse__toDate .toDate__date {
+  background: var(--white-alt-color);
+  width: 2.8125rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.1875rem;
+  padding: var(--x-0-25) 0;
+}
+.fromDate__date p,
+.toDate__date p {
+  font-weight: var(--bold);
+  font-size: var(--smaller-font);
+}
+.fromDate__day_time p,
+.toDate__day_time p {
+  color: var(--gray-color);
+  font-size: var(--smaller-font);
+  font-weight: var(--medium);
+}
+.reviewHouse__stayDetails .self__checkin {
+  color: var(--gray-color);
+  font-size: var(--smaller-font);
+  margin-top: var(--x-1-5);
+  margin-bottom: var(--x-1);
+}
+/* Review House Rules */
+.reviewHouse__rules {
+  padding: var(--x-0-75) 0;
+}
+.reviewHouse__rules h4 {
+  font-weight: var(--semi-bold);
+  font-size: var(--h3-font);
+}
+.reviewHouse__rules ul {
+  padding: var(--x-0-75) 0;
+}
+.reviewHouse__rules ul li {
+  display: flex;
+  gap: var(--x-0-75);
+  margin: var(--x-0-75) 0;
+  align-items: center;
+  font-size: var(--smaller-font);
+  color: var(--gray-color);
+  font-weight: var(--medium);
+}
+.reviewHouse__rules ul li .MuiSvgIcon-root {
+  color: var(--dark-color);
+  border: var(--border);
+  border-color: var(--gray-alt-color);
+  padding: 0.2rem;
+}
+.reviewHouse__rules ul button {
+  font-size: var(--smaller-font);
+  font-weight: var(--bolder);
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--blue-color);
+  cursor: pointer;
+}
+.reviewHouse__rules ul button span {
+  display: flex;
+  align-items: center;
+}
+
+.reviewHouse__rules .MuiButton-root {
+  background: var(--green-color) !important;
+  margin-top: 20px;
+  padding: var(--x-0-5) var(--x-1);
+}
+.reviewHouse__rules .MuiButton-label {
+  color: var(--white-color);
+  text-transform: none;
+  font-size: var(--smaller-font);
+}
+
+/* ====================== MEDIA QUERIES =====================
+/* ------------- For Large Device ------------- */
+@media screen and (min-width: 1024px) {
+  .reviewHouse__date {
+    gap: var(--x-2);
+  }
+}

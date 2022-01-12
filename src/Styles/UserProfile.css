@@ -1,0 +1,115 @@
+.userprofile__data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: var(--x-1-5);
+}
+.userprofile__profile .MuiAvatar-root {
+  width: 5rem;
+  height: 5rem;
+}
+.userprofile__data h3 {
+  font-size: var(--h2-font);
+  color: var(--dark-color);
+  font-weight: var(--semi-bold);
+}
+.userprofile__data h4 {
+  font-size: var(--normal-font);
+  color: var(--gray-color);
+  font-weight: var(--semi-bold);
+}
+
+/* User Profile Card */
+.userprofile__card {
+  max-width: 28.125rem;
+  box-shadow: var(--shadow);
+  padding: var(--x-0-75);
+  margin: 0 auto;
+}
+.userprofile__card--image {
+  display: flex;
+}
+.userprofile__card--image img {
+  object-fit: cover;
+  width: 50%;
+}
+.userprofile__card--title {
+  font-size: var(--h3-font);
+  font-weight: var(--semi-bold);
+  color: var(--dark-color);
+  margin-top: var(--x-0-75);
+}
+.userprofile__card--desc {
+  font-size: var(--small-font);
+  color: var(--gray-color);
+  margin-top: var(--x-0-25);
+  text-align: justify;
+  /* border-bottom: var(--border); */
+}
+
+.userprofile__card--date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: var(--border);
+  border-color: var(--gray-alt-color);
+  padding: var(--x-0-5) var(--x-0-75);
+  margin-top: var(--x-0-5);
+}
+
+.userprofile__card--date p {
+  font-weight: var(--medium);
+  font-size: var(--small-font);
+  color: var(--dark-color);
+}
+.userprofile__card--date .MuiSvgIcon-root {
+  font-size: var(--h3-font);
+}
+
+.userprofile__card--location,
+.userprofile__card--guests,
+.userprofile__card--payment,
+.userprofile__card--totalPrice {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--x-0-5) var(--x-0-75);
+  border-bottom: var(--border);
+  border-color: var(--gray-alt-color);
+}
+.userprofile__card--totalPrice {
+  padding-bottom: 0;
+  border: none;
+}
+.userprofile__card--location p,
+.userprofile__card--guests p,
+.userprofile__card--payment p {
+  font-weight: var(--medium);
+  font-size: var(--small-font);
+  color: var(--gray-color);
+}
+.userprofile__card--totalPrice p {
+  font-weight: var(--bold);
+  font-size: var(--small-font);
+  color: var(--dark-color);
+}
+
+.noData__found {
+  text-align: center;
+  padding-top: var(--x-1-5);
+  border-top: var(--border);
+  border-color: var(--gray-alt-color);
+}
+
+/* ====================== MEDIA QUERIES =====================
+/* ------------- For Tablet, Laptop ------------- */
+@media screen and (min-width: 768px) {
+  .userprofile__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .noData__found {
+    border-top: none;
+  }
+}

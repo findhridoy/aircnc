@@ -1,7 +1,7 @@
 /*================ GOOGLE FONTS ================*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-/*================ CSS BARIABLES ================*/
+/*================ CSS VARIABLES ================*/
 :root {
   /* Colors */
   --green-color: hsl(153, 73%, 52%);
@@ -22,13 +22,15 @@
   );
 
   /* Fonts and Typography --> normal to small screen */ /* 0.0625rem = 1px */
-  --biggest-font: 2.5rem; /* 40px */
+  --biggest-font: 3rem;
+  --big-font: 2rem;
   --h1-font: 1.5rem; /* 24px */
   --h2-font: 1.25rem; /* 20px */
   --h3-font: 1rem; /* 16px */
   --normal-font: 0.938rem; /* 15px */
   --small-font: 0.813rem; /* 13px */
   --smaller-font: 0.75rem; /* 12px */
+  --smallest-font: 0.625rem; /* 10px */
 
   /* Font Family */
   --Poppins-font: "Poppins", sans-serif;
@@ -56,19 +58,26 @@
 
   /* Z Index */
   --z-1: 1;
+  --z-9: 9;
   --z-10: 10;
+  --z-99: 99;
   --z-100: 100;
 
   /* Others */
   --hidden: hidden;
   --transition: all 300ms ease-out;
   --header-height: 4rem;
+  --radius: 0.625rem;
+  --border: 0.0625rem solid;
+  --shadow: 0 0.125rem 0.625rem var(--white-alt-color);
+  --shadow-alt: 0 0.125rem 0.625rem var(--gray-alt-color);
 }
 
 /* Fonts and Typography --> big screen */
 @media screen and (min-width: 968px) {
   :root {
-    --biggest-font: 3rem; /* 64px */
+    --biggest-font: 5rem;
+    --big-font: 3rem;
     --h1-font: 2.25rem; /* 36px */
     --h2-font: 1.75rem; /* 24px */
     --h3-font: 1.25rem; /* 20px */
@@ -88,10 +97,11 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  margin: 0;
+  margin: var(--header-height) 0 0 0;
   padding: 0;
   font-family: var(--Poppins-font);
   font-size: var(--normal-font);
+  overflow: overlay;
 }
 li {
   list-style: none;
@@ -104,17 +114,36 @@ input {
   border: none;
   outline: none;
   font-size: var(--normal-font);
-  font-family: var(--Poppins-font);
+  font-family: var(--Poppins-font) !important;
 }
 button {
   cursor: pointer;
+}
+button:disabled {
+  color: var(--gray-alt-color);
+  pointer-events: auto !important;
+  cursor: not-allowed !important;
 }
 img {
   max-width: 100%;
   height: auto;
 }
-
+.loader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 /*================ REUSEABLE CSS ================*/
+section {
+  padding: var(--x-1) 0;
+}
 .container {
   max-width: 1166px;
   margin-left: var(--x-1);
@@ -124,22 +153,8 @@ img {
   display: grid;
   gap: 1.5rem;
 }
-.button {
-  padding: var(--x-0-5) var(--x-1-5);
-  font-size: var(--normal-font);
-  font-weight: var(--semi-bold);
-  transition: var(--transition);
-}
-.button:hover {
-  /* color: var(--text-color);
-  background-color: var(--title-color); */
-}
 
 /*====================== MEDIA QUERIES =====================*/
-/* ------------- For Small Device ------------- */
-@media screen and (max-width: 320px) {
-}
-
 /* ------------- For Medium Device ------------- */
 @media screen and (min-width: 576px) {
   .container {
@@ -150,6 +165,9 @@ img {
 
 /* ------------- For Tablet, Laptop ------------- */
 @media screen and (min-width: 768px) {
+  section {
+    padding: var(--x-1-5) 0;
+  }
   .container {
     margin-left: var(--x-2);
     margin-right: var(--x-2);
@@ -158,6 +176,9 @@ img {
 
 /* ------------- For Large Device ------------- */
 @media screen and (min-width: 1024px) {
+  section {
+    padding: var(--x-1-75) 0;
+  }
   .container {
     margin-left: var(--x-3);
     margin-right: var(--x-3);
@@ -165,6 +186,9 @@ img {
 }
 /* ------------- For Extra Large Device ------------- */
 @media screen and (min-width: 1200px) {
+  section {
+    padding: var(--x-2) 0;
+  }
   .container {
     margin-left: auto;
     margin-right: auto;
@@ -173,7 +197,7 @@ img {
 
 /*================ CSS ALL FILES ================*/
 @import "./Styles/Header";
-/* @import "./Styles/Banner";
+@import "./Styles/Banner";
 @import "./Styles/SearchForm";
 @import "./Styles/AccordionCount.css";
 @import "../node_modules/swiper/swiper-bundle.min";
@@ -181,14 +205,27 @@ img {
 @import "./Styles/Result";
 @import "./Styles/ResultCard";
 @import "./Styles/ResultMap";
-@import "./Styles/Confirm";
-@import "./Styles/MultiStep";
-@import "./Styles/ReviewHouseRules";
-@import "./Styles/WhosComming";
-@import "./Styles/ConfirmAndPay";
-@import "./Styles/ConfirmHotelCard";
-@import "./Styles/ConfirmHotelAccordion";
 @import "./Styles/HotelDetails";
+@import "./Styles/ConfirmHotelAccordion";
+@import "./Styles/ConfirmLayout";
+@import "./Styles/MultiStepNav";
+@import "./Styles/ReviewHouseRules";
+@import "./Styles/ConfirmHotelCard";
+@import "./Styles/WhosComming";
 @import "./Styles/PaymentForm";
-@import "./Styles/LoginPage";
-@import "./Styles/PageNotFound"; */
+@import "./Styles/SignupLogin";
+@import "./Styles/UserProfile";
+@import "./Styles/PageNotFound";
+
+::-webkit-scrollbar {
+  width: 0.6rem;
+  /* background-color: var(--white-color); */
+}
+::-webkit-scrollbar-thumb {
+  width: 0.6rem;
+  background-color: var(--gray-alt-color);
+  border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--gray-color);
+}

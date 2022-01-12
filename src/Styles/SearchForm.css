@@ -1,0 +1,166 @@
+.search__form {
+  max-width: 31.25rem;
+  min-width: 17.5rem;
+  margin: 0 auto var(--x-3);
+}
+.search__location {
+  background-color: var(--white-color);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  padding: var(--x-0-5) var(--x-1-25) 0;
+}
+/* Map Box Auto Complete Start */
+.search {
+  margin-bottom: 0 !important;
+  position: relative;
+}
+.search::placeholder {
+  color: var(--gray-alt-color);
+}
+.react-mapbox-ac-menu {
+  width: auto;
+  position: absolute;
+  /* z-index: 9999; */
+  background-color: var(--white-color);
+  border: none !important;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  padding-top: var(--x-0-5);
+  margin-top: 0 !important;
+  left: 4.5%;
+}
+
+.react-mapbox-ac-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--x-0-75) 0;
+  border: none;
+  outline: none;
+  font-size: var(--small-font);
+  font-weight: var(--medium);
+  font-family: var(--Poppins-font);
+}
+
+.react-mapbox-ac-suggestion {
+  font-size: var(--normal-font);
+  margin-bottom: var(--x-0-5);
+  font-weight: var(--medium);
+  cursor: pointer;
+  padding-left: 2.1875rem !important;
+  padding-right: var(--x-1-5);
+  font-family: var(--Poppins-font);
+  display: flex;
+  align-items: center;
+}
+.react-mapbox-ac-suggestion::before {
+  content: " ";
+  background-image: url("../Images/Icons/marker.svg");
+  background-size: 1.0625rem 1.0625rem;
+  background-repeat: no-repeat;
+  height: 1.0625rem;
+  width: 1.0625rem;
+  position: absolute;
+  left: 0.4375rem;
+}
+
+.react-mapbox-ac-suggestion:hover {
+  background-color: var(--white-alt-color) !important;
+}
+/* Map Box Auto Complete End */
+
+.search__date {
+  display: flex;
+  margin: var(--x-0-75) 0;
+}
+.search__date p {
+  font-weight: var(--semi-bold);
+  font-size: var(--small-font);
+  margin-bottom: -0.625rem;
+  color: var(--gray-color);
+}
+.search__toDate,
+.search__fromDate {
+  padding: var(--x-0-5) 0.9375rem 0;
+  background-color: var(--white-color);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+}
+.search__fromDate {
+  margin-left: var(--x-0-5);
+}
+
+.MuiInputBase-root {
+  font-weight: var(--semi-bold) !important;
+  font-size: var(--small-font) !important;
+}
+.MuiInput-underline:before {
+  border: none !important;
+}
+.MuiInput-underline:after {
+  border: none !important;
+}
+/* Search From Accorodian */
+.searchForm__accordion .MuiAccordion-root {
+  box-shadow: var(--shadow) !important;
+  border-radius: var(--radius) !important;
+}
+.searchForm__accordion .MuiAccordionSummary-content {
+  flex-direction: column;
+}
+.searchForm__accordion .MuiAccordionSummary-content p {
+  font-weight: var(--semi-bold);
+  font-size: var(--small-font);
+  margin-bottom: var(--x-0-25);
+  color: var(--gray-color);
+}
+
+.searchForm__accordion .MuiAccordionDetails-root {
+  border-top: var(--border) !important;
+  border-color: var(--gray-alt-color) !important;
+  padding: 0.3125rem var(--x-1) !important;
+  display: block !important;
+}
+.accordion__button {
+  display: flex;
+  padding: 0 var(--x-0-5) 0.8125rem;
+  justify-content: space-between;
+}
+.accordion__button .MuiButton-root {
+  width: 5.625rem;
+  border: var(--border);
+  border-color: var(--green-color);
+}
+.accordion__button .MuiButton-label {
+  color: var(--green-color);
+  font-weight: var(--semi-bold);
+  text-transform: none;
+  font-size: var(--smaller-font);
+}
+.search__button {
+  margin-top: var(--x-1);
+}
+.search__button .MuiButton-root {
+  width: 100%;
+  padding: var(--x-0-5) 0;
+  background: var(--gradient-color) !important;
+}
+.search__button .MuiButton-label {
+  color: var(--white-color);
+  text-transform: none;
+  font-size: var(--normal-font);
+}
+
+/* ====================== MEDIA QUERIES =====================
+/* ------------- For Tablet, Laptop ------------- */
+@media screen and (min-width: 768px) {
+  .search__button .MuiButton-root {
+    padding: var(--x-0-75) 0;
+  }
+}
+
+/* ------------- For Large Device ------------- */
+@media screen and (min-width: 1024px) {
+  .search__form {
+    max-width: 23.75rem;
+  }
+}

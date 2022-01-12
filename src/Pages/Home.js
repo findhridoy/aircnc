@@ -1,14 +1,13 @@
 import React from "react";
 import Banner from "../Components/Banner";
-import Header from "../Components/Header";
+import Layout from "../Layout/Layout";
 
-function Home() {
+const Home = () => {
   return (
-    <div className="home">
-      <Header />
-      <Banner/>
-    </div>
+    <Layout>
+      <Banner />
+    </Layout>
   );
-}
+};
 
 export default Home;

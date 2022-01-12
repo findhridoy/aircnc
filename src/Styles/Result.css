@@ -1,0 +1,86 @@
+.result__address p {
+  font-weight: var(--semi-bold);
+  font-size: var(--smaller-font);
+  color: var(--gray-color);
+}
+.result__address h3 {
+  font-size: var(--h3-font);
+  font-weight: var(--semi-bold);
+  color: var(--dark-color);
+  margin-top: var(--x-0-25);
+}
+.result__address ul {
+  display: flex;
+  gap: var(--x-0-5);
+  margin-top: var(--x-1);
+}
+.result__address ul li:nth-child(1) {
+  display: none;
+}
+.result__address ul li .MuiButton-root {
+  border-radius: var(--x-1-75) !important;
+  border: var(--border);
+  border-color: var(--gray-alt-color);
+}
+.result__address ul li .MuiButton-label {
+  text-transform: none;
+  font-size: var(--smallest-font);
+  font-weight: var(--semi-bold);
+  color: var(--gray-color);
+}
+.result__hotel {
+  margin: var(--x-2) 0;
+}
+/* ====================== MEDIA QUERIES =====================
+/* ------------- For Small Device ------------- */
+@media screen and (max-width: 340px) {
+  .result__address ul li:nth-child(3) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .result__section {
+    margin-top: 6.5rem;
+  }
+}
+
+/* ------------- For Medium Device ------------- */
+@media screen and (min-width: 576px) {
+  .result__address ul {
+    gap: var(--x-0-75);
+  }
+  .result__address ul li:nth-child(1) {
+    display: block;
+  }
+  .result__address ul li .MuiButton-root {
+    padding: var(--x-0-25) var(--x-1);
+  }
+  .result__address ul li .MuiButton-label {
+    font-size: var(--smaller-font);
+  }
+}
+
+/* ------------- For Tablet, Laptop ------------- */
+@media screen and (min-width: 768px) {
+  .result__address ul li .MuiButton-root {
+    padding: var(--x-0-5) var(--x-1-25);
+  }
+}
+
+/* ------------- For Large Device ------------- */
+@media screen and (min-width: 1024px) {
+  .result__hotel {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--x-1-75);
+    margin: var(--x-1) 0;
+  }
+}
+/* ------------- For Extra Large Device ------------- */
+@media screen and (min-width: 1200px) {
+  .result__hotel {
+    display: block;
+    margin: var(--x-2) 0;
+  }
+}

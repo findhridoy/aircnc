@@ -1,0 +1,43 @@
+.swiper__card {
+  cursor: pointer;
+  margin: 0 auto;
+}
+.swiper__cart--img img {
+  object-fit: cover;
+}
+.card__location {
+  font-weight: var(--bolder);
+  font-size: var(--smallest-font);
+  text-transform: uppercase;
+  color: var(--blue-alt-color);
+  transition: color 200ms ease-in-out;
+  display: block;
+}
+.card__title {
+  font-weight: var(--semi-bold);
+  font-size: var(--small-font);
+  margin-top: var(--x-0-5);
+  color: var(--gray-color);
+  display: block;
+}
+.card__price {
+  font-weight: var(--medium);
+  font-size: var(--smaller-font);
+  color: var(--gray-alt-color);
+  margin-top: 0.125rem;
+  display: block;
+}
+.card__rating {
+  font-weight: var(--bolder);
+  font-size: var(--smallest-font);
+  display: flex;
+  color: var(--gray-color);
+  margin-top: 0.125rem;
+}
+.card__rating .MuiSvgIcon-root {
+  color: var(--green-color) !important;
+  font-size: var(--normal-font) !important;
+}
+.swiper__card:hover .card__location {
+  color: var(--dark-blue-color);
+}

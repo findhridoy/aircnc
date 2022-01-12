@@ -1,0 +1,157 @@
+/* Box 1 */
+.hotelDetails__box1 {
+  border-bottom: var(--border);
+  border-color: var(--gray-alt-color);
+  padding-bottom: var(--x-0-25);
+}
+
+.box1__data h1 {
+  font-weight: var(--semi-bold);
+  font-size: var(--h2-font);
+  color: var(--dark-color);
+  margin-bottom: var(--x-1);
+}
+.box1__data p {
+  font-weight: var(--medium);
+  font-size: var(--small-font);
+  color: var(--gray-color);
+  margin-bottom: var(--x-0-25);
+}
+.box1__data p span {
+  margin-right: var(--x-0-5);
+}
+
+/* Box 2 */
+.hotelDetails__box2 {
+  border-bottom: var(--border);
+  border-color: var(--gray-alt-color);
+  padding: var(--x-0-25) 0;
+}
+.box2__data ul li {
+  display: flex;
+  color: var(--gray-color);
+  margin: var(--x-1) 0;
+}
+.box2__data ul li .MuiSvgIcon-root {
+  font-size: var(--h2-font);
+  margin-right: var(--x-1);
+}
+.box2__data ul li p:first-child {
+  font-size: var(--normal-font);
+  font-weight: var(--semi-bold);
+}
+.box2__data ul li p:last-child {
+  font-size: var(--small-font);
+  font-weight: var(--medium);
+}
+/* Box 3 */
+.hotelDetails__box3 {
+  padding-top: var(--x-1);
+}
+.box3__data p {
+  font-size: var(--small-font);
+  color: var(--gray-color);
+  text-align: justify;
+}
+.box3__data button {
+  font-size: var(--small-font);
+  font-weight: var(--bold);
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--blue-color);
+  cursor: pointer;
+  margin-top: var(--x-0-75);
+}
+.box3__data button span {
+  display: flex;
+  align-items: center;
+}
+.box3__data button span .MuiSvgIcon-root {
+  font-size: var(--h1-font);
+}
+.hotelDetails__rating p {
+  font-weight: var(--bolder);
+  font-size: var(--smaller-font);
+  display: flex;
+  align-items: center;
+  color: var(--dark-color);
+  margin-top: var(--x-0-75);
+}
+.hotelDetails__rating:last-child {
+  margin-top: var(--x-1-5);
+}
+.hotelDetails__rating p {
+  margin-top: var(--x-0-25);
+}
+.hotelDetails__rating p span {
+  font-weight: var(--medium);
+  color: var(--gray-color);
+}
+.hotelDetails__rating p .MuiSvgIcon-root {
+  color: var(--green-color) !important;
+  font-size: var(--normal-font) !important;
+  margin-right: var(--x-0-25);
+}
+.hotelDetails__rating h4 span {
+  font-weight: var(--medium);
+  color: var(--gray-color);
+}
+/* Card */
+.hotelDetails__confirm--card {
+  border-radius: var(--x-0-75);
+  padding: var(--x-1-25) var(--x-1);
+  margin: var(--x-2) auto 0;
+  box-shadow: var(--shadow) !important;
+  max-width: 28.125rem;
+}
+.hotelDetails__reserve_button {
+  margin-top: var(--x-0-75);
+}
+.hotelDetails__reserve_button .MuiButton-root {
+  width: 100%;
+  padding: var(--x-0-5) 0;
+  background: var(--gradient-color) !important;
+}
+.hotelDetails__reserve_button .MuiButton-label {
+  color: var(--white-color);
+  text-transform: none;
+  font-size: var(--small-font);
+}
+.hotelDetails__reserve_button p {
+  color: var(--gray-alt-color);
+  font-size: var(--smaller-font);
+  text-align: center;
+  margin-top: var(--x-0-5);
+}
+
+/* ====================== MEDIA QUERIES =====================
+/* ------------- For Medium Device ------------- */
+@media screen and (min-width: 576px) {
+  .hotelDetails__image {
+    display: flex;
+  }
+  .hotelDetails__image img {
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .hotelDetails {
+    margin-top: 6.5rem;
+  }
+}
+
+/* ------------- For Tablet, Laptop ------------- */
+@media screen and (min-width: 768px) {
+  .hotelDetails__section {
+    display: grid;
+    column-gap: var(--x-2);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hotelDetails__confirm--card {
+    max-width: 380px;
+    padding: var(--x-1-5) var(--x-1-25);
+    margin: 0 auto;
+  }
+}
