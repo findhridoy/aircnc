@@ -12,6 +12,7 @@ import PageNotFound from "./Pages/PageNotFound";
 import Result from "./Pages/Result";
 import ReviewHouseRules from "./Pages/ReviewHouseRules";
 import SignUp from "./Pages/SignUp";
+import UserProfile from "./Pages/UserProfile";
 import WhosComming from "./Pages/WhosComming";
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
           path="/confirm/confirm&pay/:id"
           component={ConfirmAndPay}
         />
+        <PrivateRoute exact path="/profile" component={UserProfile} />
         <PublicRoute exact path="/signup" component={SignUp} />
         <PublicRoute exact path="/login" component={Login} />
         <Route exact path="*" component={PageNotFound} />

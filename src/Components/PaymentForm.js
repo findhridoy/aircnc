@@ -25,9 +25,14 @@ const PaymentForm = () => {
   const elements = useElements();
 
   // Context
-  const { locationData, userInfo } = useAuth();
+  const { userInfo } = useAuth();
 
-  let diffDate = new Date(locationData?.checkOut - locationData?.checkIn);
+  let locationData = JSON.parse(sessionStorage.getItem("locationData"));
+
+  let toDate = new Date(locationData?.checkIn);
+  let fromDate = new Date(locationData?.checkOut);
+  const diffTime = Math.abs(fromDate - toDate);
+  const diffDate = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
   const { id } = useParams();
   const history = useHistory();
@@ -79,31 +84,22 @@ const PaymentForm = () => {
   };
 
   const handleUserConfirmData = (orderId) => {
-    try {
-      const userConfirmData = {
-        name: userInfo?.displayName,
-        email: userInfo?.email,
-        title: exectData?.title,
-        location: locationData?.locationName,
-        orderId: orderId,
-        checkIn: locationData?.checkIn,
-        checkOut: locationData?.checkOut,
-        guests: locationData?.guestCount,
-        totalPrice:
-          exectData?.price * (locationData ? diffDate.getUTCDate() - 1 : 0) +
-          (locationData ? 10 : 0) +
-          (locationData ? 10 : 0),
-      };
-      localStorage.setItem("confrimData", JSON.stringify(userConfirmData));
-      cogoToast.success("Your payment was successfull", {
-        position: "bottom-right",
-      });
-      history.push("/profile");
-    } catch (error) {
-      cogoToast.error("Somthing was wrong!", {
-        position: "bottom-right",
-      });
-    }
+    const userConfirmData = {
+      email: userInfo?.email,
+      id: exectData?.id,
+      location: locationData?.locationName,
+      orderId: orderId,
+      checkIn: locationData?.checkIn,
+      checkOut: locationData?.checkOut,
+      guests: locationData?.guestCount,
+      totalPrice:
+        exectData?.price * diffDate + (diffDate ? 10 : 0) + (diffDate ? 10 : 0),
+    };
+    localStorage.setItem("confrimData", JSON.stringify(userConfirmData));
+    cogoToast.success("Your payment was successfull", {
+      position: "bottom-right",
+    });
+    history.push("/profile");
   };
 
   return (

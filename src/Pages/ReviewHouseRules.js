@@ -9,11 +9,10 @@ import React, { useState } from "react";
 import Moment from "react-moment";
 import { useHistory, useParams } from "react-router-dom";
 import MultiStepNav from "../Components/MultiStepNav";
-import { useAuth } from "../Context/AuthContext";
 import ConfirmLayout from "../Layout/ConfirmLayout";
 
 function ReviewHouseRules() {
-  const { locationData } = useAuth();
+  let locationData = JSON.parse(sessionStorage.getItem("locationData"));
 
   let diffDate = new Date(locationData?.checkOut - locationData?.checkIn);
 

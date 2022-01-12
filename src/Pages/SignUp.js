@@ -3,6 +3,7 @@ import cogoToast from "cogo-toast";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
+import googleIcon from "../Images/Icons/google.png";
 import Layout from "../Layout/Layout";
 
 const SignUp = ({ history, location, replace }) => {
@@ -11,8 +12,9 @@ const SignUp = ({ history, location, replace }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState();
+  const [loading2, setLoading2] = useState();
 
-  const { signup } = useAuth();
+  const { signup, goolgeSignIn } = useAuth();
 
   // Redirect
   let { from } = location.state || { from: { pathname: "/" } };
@@ -36,6 +38,21 @@ const SignUp = ({ history, location, replace }) => {
         });
         setLoading(false);
       }
+    }
+  };
+
+  // Google Sign In
+  const handleGoogleSignIn = async () => {
+    try {
+      setLoading2(true);
+      await goolgeSignIn();
+      history.replace(from);
+      setLoading2(false);
+    } catch (error) {
+      cogoToast.error(error.message, {
+        position: "bottom-right",
+      });
+      setLoading2(false);
     }
   };
   return (
@@ -120,6 +137,20 @@ const SignUp = ({ history, location, replace }) => {
                 Login
               </NavLink>
             </span>
+
+            <div className="sl__bottom--section">
+              <div className="sl__or--text">or</div>
+              <div className="google__button">
+                <img src={googleIcon} alt="Google Icon" />
+                <Button
+                  variant="contained"
+                  onClick={handleGoogleSignIn}
+                  disabled={loading2}
+                >
+                  Sign in with Google
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>

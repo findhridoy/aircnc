@@ -12,7 +12,7 @@
 /* ------------- For Medium Device ------------- */
 @media screen and (min-width: 576px) {
   .confirmLayout__multistep--section {
-    max-width: 400px;
+    max-width: 25rem;
     margin: 0 auto;
   }
 }
@@ -25,11 +25,11 @@
     grid-template-columns: repeat(2, 1fr);
   }
   .confirmLayout__multistep--section {
-    max-width: 500px;
+    max-width: 31.25rem;
     /* max-width: 580px; */
   }
   .confirmLayout__hotel--card {
-    width: 350px;
+    width: 21.875rem;
     justify-self: center;
   }
 }
@@ -39,7 +39,4 @@
   .confirmLayout__content {
     column-gap: var(--x-2);
   }
-}
-/* ------------- For Extra Large Device ------------- */
-@media screen and (min-width: 1200px) {
 }

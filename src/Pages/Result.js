@@ -3,12 +3,12 @@ import React, { useEffect } from "react";
 import Moment from "react-moment";
 import ResultCard from "../Components/ResultCard";
 import ResultMap from "../Components/ResultMap";
-import { useAuth } from "../Context/AuthContext";
 import data from "../Data/Data";
 import Layout from "../Layout/Layout";
 
 const Result = ({ history }) => {
-  const { locationData: location } = useAuth();
+  // const { locationData: location } = useAuth();
+  let location = JSON.parse(sessionStorage.getItem("locationData"));
 
   useEffect(() => {
     if (!location) {

@@ -108,24 +108,9 @@
 }
 
 /* ====================== MEDIA QUERIES =====================
-/* ------------- For Small Device ------------- */
-@media screen and (max-width: 340px) {
-}
-
-/* ------------- For Medium Device ------------- */
-@media screen and (min-width: 576px) {
-}
-
-/* ------------- For Tablet, Laptop ------------- */
-@media screen and (min-width: 768px) {
-}
-
 /* ------------- For Large Device ------------- */
 @media screen and (min-width: 1024px) {
   .reviewHouse__date {
     gap: var(--x-2);
   }
-}
-/* ------------- For Extra Large Device ------------- */
-@media screen and (min-width: 1200px) {
 }

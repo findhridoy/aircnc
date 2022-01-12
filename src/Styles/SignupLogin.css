@@ -61,19 +61,55 @@
   text-decoration: underline;
 }
 
+.sl__bottom--section {
+  margin-top: var(--x-0-5);
+}
+.sl__or--text {
+  font-size: var(--h3-font);
+  font-weight: var(--semi-bold);
+  color: var(--dark-color);
+  position: relative;
+  text-align: center;
+}
+.sl__or--text::after,
+.sl__or--text::before {
+  position: absolute;
+  content: "";
+  width: 45%;
+  height: 0.01rem;
+  background-color: var(--gray-alt-color);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sl__or--text::before {
+  left: 0;
+}
+.sl__or--text::after {
+  right: 0;
+}
+.google__button {
+  display: flex;
+  border: var(--border);
+  border-color: var(--blue-color);
+  margin-top: var(--x-0-75);
+}
+.google__button img {
+  width: 3.125rem;
+  background-color: var(--white-color);
+  padding: var(--x-0-5);
+}
+
+.google__button .MuiButton-root {
+  width: 100%;
+  background: var(--blue-color) !important;
+  border-radius: 0 !important;
+}
+.google__button .MuiButton-label {
+  color: var(--white-color);
+  text-transform: none;
+  font-size: var(--normal-font);
+}
 /* ====================== MEDIA QUERIES =====================
-/* ------------- For Small Device ------------- */
-@media screen and (max-width: 380px) {
-}
-
-/* ------------- For Medium Device ------------- */
-@media screen and (min-width: 576px) {
-}
-
-/* ------------- For Tablet, Laptop ------------- */
-@media screen and (min-width: 768px) {
-}
-
 /* ------------- For Large Device ------------- */
 @media screen and (min-width: 1024px) {
   .sl__form {
@@ -83,7 +119,4 @@
   .form__control {
     height: var(--x-2-75);
   }
-}
-/* ------------- For Extra Large Device ------------- */
-@media screen and (min-width: 1200px) {
 }

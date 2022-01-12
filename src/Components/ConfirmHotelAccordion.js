@@ -7,12 +7,15 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import React from "react";
 import Moment from "react-moment";
-import { useAuth } from "../Context/AuthContext";
 
 function ConfirmHotelAccordion({ price }) {
-  const { locationData } = useAuth();
+  let locationData = JSON.parse(sessionStorage.getItem("locationData"));
 
-  let diffDate = new Date(locationData?.checkOut - locationData?.checkIn);
+  let toDate = new Date(locationData?.checkIn);
+  let fromDate = new Date(locationData?.checkOut);
+  const diffTime = Math.abs(fromDate - toDate);
+  const diffDate = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
   return (
     <>
       <div className="confirmHotel__dates">
@@ -41,28 +44,23 @@ function ConfirmHotelAccordion({ price }) {
             <AccordionDetails>
               <div className="confirmHotel__perNightPrice">
                 <p>
-                  ${price} x {locationData ? diffDate.getUTCDate() - 1 : 0}{" "}
-                  nights
+                  $ {price} x {diffDate} nights
                 </p>
-                <p>
-                  $ {price * (locationData ? diffDate.getUTCDate() - 1 : 0)}
-                </p>
+                <p>$ {price * diffDate}</p>
               </div>
               <div className="confirmHotel__cleaningFee">
                 <p>Cleaning fee</p>
-                <p>$ {locationData ? 10 : 0}</p>
+                <p>$ {diffDate ? 10 : 0}</p>
               </div>
               <div className="confirmHotel__serviceFee">
                 <p>Service fee</p>
-                <p>$ {locationData ? 21 : 0}</p>
+                <p>$ {diffDate ? 21 : 0}</p>
               </div>
               <div className="confirmHotel__totalPrice">
                 <p>Total</p>
                 <p>
                   $
-                  {price * (locationData ? diffDate.getUTCDate() - 1 : 0) +
-                    (locationData ? 10 : 0) +
-                    (locationData ? 10 : 0)}
+                  {price * diffDate + (diffDate ? 10 : 0) + (diffDate ? 21 : 0)}
                 </p>
               </div>
             </AccordionDetails>

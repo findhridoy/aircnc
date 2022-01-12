@@ -1,8 +1,10 @@
 import { CircularProgress } from "@material-ui/core";
 import {
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -18,7 +20,6 @@ export const useAuth = () => {
 const AuthProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState();
   const [loading, setLoading] = useState(true);
-  const [locationData, setLocationData] = useState();
 
   //   Signup User
   const signup = async (email, password, name) => {
@@ -42,6 +43,11 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  // Google Sign In
+  const goolgeSignIn = () => {
+    const googleAuthProvider = new GoogleAuthProvider();
+    return signInWithPopup(auth, googleAuthProvider);
+  };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUserInfo(user);
@@ -54,9 +60,8 @@ const AuthProvider = ({ children }) => {
     signup,
     login,
     logout,
+    goolgeSignIn,
     userInfo,
-    locationData,
-    setLocationData,
   };
   return (
     <AuthContext.Provider value={value}>

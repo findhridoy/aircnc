@@ -3,8 +3,7 @@ import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import React from "react";
 
-function AccordionCount(props) {
-  const { title, age, countValue, handleCount } = props;
+function AccordionCount({ title, age, countValue, handleCount }) {
   return (
     <div>
       <div className="count__section">

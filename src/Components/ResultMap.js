@@ -1,19 +1,17 @@
 import { Icon } from "leaflet";
-import markerIcon from "leaflet/dist/images/placeholder-2x.png";
 import "leaflet/dist/leaflet.css";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import { useAuth } from "../Context/AuthContext";
+import markerIcon from "../Images/Icons/marker.png";
 
 const ResultMap = () => {
-  const { locationData: location } = useAuth();
-  const [position, setPositon] = useState([23.731489, 90.245996]);
+  let location = JSON.parse(sessionStorage.getItem("locationData"));
 
-  useEffect(() => {
-    if (location) {
-      setPositon([location?.locationLat, location?.locationLng]);
-    }
-  }, [location]);
+  const position = [
+    location ? location.locationLat : 23.684994,
+    location ? location.locationLng : 90.356331,
+  ];
+
   return (
     <div className="map">
       <MapContainer

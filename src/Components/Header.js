@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import CloseIcon from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
+import cogoToast from "cogo-toast";
 import React, { useEffect, useState } from "react";
 import Moment from "react-moment";
 import { NavLink, useParams } from "react-router-dom";
@@ -13,16 +14,17 @@ function Header() {
   const [showMenu, setShowMenu] = useState(false);
   const [showHeader, setShowHeader] = useState(false);
 
-  const { userInfo, logout, locationData: location } = useAuth();
+  const { userInfo, logout } = useAuth();
+
+  let location = JSON.parse(sessionStorage.getItem("locationData"));
 
   const { id } = useParams();
 
   const handleLogout = async () => {
     try {
       await logout();
-      console.log("res");
     } catch (error) {
-      console.log(error);
+      cogoToast.error("Somthing was wrong!", { position: "bottom-right" });
     }
   };
   const openNavMenu = () => {
@@ -75,7 +77,7 @@ function Header() {
                   </NavLink>
                 </li>
                 <li className="nav__item">
-                  <NavLink className="nav__link" exact to="/confirm/rules">
+                  <NavLink className="nav__link" exact to="/help">
                     <Button>Help</Button>
                   </NavLink>
                 </li>

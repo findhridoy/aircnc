@@ -36,15 +36,8 @@
 }
 .card__rating .MuiSvgIcon-root {
   color: var(--green-color) !important;
-  font-size: 15px !important;
+  font-size: var(--normal-font) !important;
 }
 .swiper__card:hover .card__location {
   color: var(--dark-blue-color);
-}
-
-/* ------------- For Large Device ------------- */
-@media screen and (min-width: 1024px) {
-  .swiper__card .MuiCard-root {
-    /* margin-right: 20px !important; */
-  }
 }

@@ -7,7 +7,7 @@
   border-bottom: var(--border);
   border-color: var(--gray-alt-color);
   background-color: var(--white-color);
-  z-index: 99;
+  z-index: var(--z-99);
   transition: var(--transition);
 }
 .show__header {
@@ -23,7 +23,7 @@
 }
 .nav__logo h1 {
   font-size: var(--h1-font);
-  font-weight: 700;
+  font-weight: var(--bold);
   color: var(--green-color);
   cursor: pointer;
   position: relative;
@@ -32,11 +32,11 @@
 .nav__search {
   position: relative;
   top: initial;
-  box-shadow: 0px 0px 10px var(--white-alt-color);
+  box-shadow: var(--shadow);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   padding: var(--x-0-5) var(--x-1);
   background-color: var(--white-color);
 }
@@ -55,7 +55,8 @@
   font-size: var(--small-font);
   font-weight: var(--semi-bold);
   color: var(--dark-color);
-  border-right: 1px solid var(--dark-color);
+  border-right: var(--border);
+  border-color: var(--dark-color);
 }
 
 .nav__search .MuiSvgIcon-root {
@@ -112,7 +113,7 @@
     margin-top: calc(var(--header-height) + 1rem);
   }
   .nav__item .MuiButton-root {
-    width: 210px;
+    width: 13.125rem;
   }
   .signup__button {
     margin-top: var(--x-0-75);
@@ -136,7 +137,7 @@
   background-image: var(--gradient-color);
 }
 .MuiPaper-root {
-  margin-top: 40px !important;
+  margin-top: var(--x-2-5) !important;
   cursor: pointer;
 }
 

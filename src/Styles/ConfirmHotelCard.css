@@ -3,7 +3,7 @@
   padding: var(--x-1-25) var(--x-1);
   margin: var(--x-2) auto 0;
   box-shadow: var(--shadow);
-  max-width: 400px;
+  max-width: 25rem;
 }
 .confirmHotel__content {
   display: flex;
@@ -24,7 +24,7 @@
   margin-top: var(--x-0-75);
 }
 .confirmHotel__data p span {
-  font-weight: 500;
+  font-weight: var(--medium);
   color: var(--gray-color);
 }
 .confirmHotel__data p .MuiSvgIcon-root {

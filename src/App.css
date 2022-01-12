@@ -1,7 +1,7 @@
 /*================ GOOGLE FONTS ================*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-/*================ CSS BARIABLES ================*/
+/*================ CSS VARIABLES ================*/
 :root {
   /* Colors */
   --green-color: hsl(153, 73%, 52%);
@@ -58,7 +58,9 @@
 
   /* Z Index */
   --z-1: 1;
+  --z-9: 9;
   --z-10: 10;
+  --z-99: 99;
   --z-100: 100;
 
   /* Others */
@@ -151,22 +153,8 @@ section {
   display: grid;
   gap: 1.5rem;
 }
-.button {
-  /* padding: var(--x-0-5) var(--x-1-5);
-  font-size: var(--normal-font);
-  font-weight: var(--semi-bold);
-  transition: var(--transition); */
-}
-.button:hover {
-  /* color: var(--text-color);
-  background-color: var(--title-color); */
-}
 
 /*====================== MEDIA QUERIES =====================*/
-/* ------------- For Small Device ------------- */
-@media screen and (max-width: 320px) {
-}
-
 /* ------------- For Medium Device ------------- */
 @media screen and (min-width: 576px) {
   .container {
@@ -226,10 +214,8 @@ section {
 @import "./Styles/WhosComming";
 @import "./Styles/PaymentForm";
 @import "./Styles/SignupLogin";
+@import "./Styles/UserProfile";
 @import "./Styles/PageNotFound";
-/*
-@import "./Styles/LoginPage";
-*/
 
 ::-webkit-scrollbar {
   width: 0.6rem;
@@ -242,23 +228,4 @@ section {
 }
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--gray-color);
-}
-/* ====================== MEDIA QUERIES =====================
-/* ------------- For Small Device ------------- */
-@media screen and (max-width: 340px) {
-}
-
-/* ------------- For Medium Device ------------- */
-@media screen and (min-width: 576px) {
-}
-
-/* ------------- For Tablet, Laptop ------------- */
-@media screen and (min-width: 768px) {
-}
-
-/* ------------- For Large Device ------------- */
-@media screen and (min-width: 1024px) {
-}
-/* ------------- For Extra Large Device ------------- */
-@media screen and (min-width: 1200px) {
 }

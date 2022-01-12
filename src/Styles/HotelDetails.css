@@ -103,7 +103,7 @@
   padding: var(--x-1-25) var(--x-1);
   margin: var(--x-2) auto 0;
   box-shadow: var(--shadow) !important;
-  max-width: 450px;
+  max-width: 28.125rem;
 }
 .hotelDetails__reserve_button {
   margin-top: var(--x-0-75);
@@ -126,10 +126,6 @@
 }
 
 /* ====================== MEDIA QUERIES =====================
-/* ------------- For Small Device ------------- */
-@media screen and (max-width: 340px) {
-}
-
 /* ------------- For Medium Device ------------- */
 @media screen and (min-width: 576px) {
   .hotelDetails__image {
@@ -158,11 +154,4 @@
     padding: var(--x-1-5) var(--x-1-25);
     margin: 0 auto;
   }
-}
-
-/* ------------- For Large Device ------------- */
-@media screen and (min-width: 1024px) {
-}
-/* ------------- For Extra Large Device ------------- */
-@media screen and (min-width: 1200px) {
 }

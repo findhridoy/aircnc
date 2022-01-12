@@ -12,7 +12,6 @@ import "date-fns";
 import React, { useState } from "react";
 import MapboxAutocomplete from "react-mapbox-autocomplete";
 import { useHistory } from "react-router-dom";
-import { useAuth } from "../Context/AuthContext";
 import AccordionCount from "./AccordionCount";
 
 const SearchForm = () => {
@@ -76,7 +75,7 @@ const SearchForm = () => {
 
   // Custom hooks
   // const { setLocationData } = useLocationData();
-  const { setLocationData } = useAuth();
+  // const { setLocationData } = useAuth();
 
   const history = useHistory();
   // Search Function`
@@ -95,7 +94,8 @@ const SearchForm = () => {
         checkIn,
         checkOut,
       };
-      setLocationData({ ...locatData });
+      // setLocationData({ ...locatData });
+      sessionStorage.setItem("locationData", JSON.stringify(locatData));
       history.push("/result");
     }
   };

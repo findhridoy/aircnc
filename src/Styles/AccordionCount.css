@@ -3,25 +3,25 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 20px 0;
+  margin: var(--x-1-25) 0;
 }
 .count__title p {
-  color: var(--l-gray);
-  font-size: 13px;
-  font-weight: 500;
+  color: var(--gray-color);
+  font-size: var(--smaller-font);
+  font-weight: var(--medium);
 }
 .count__count {
   display: flex;
   align-items: center;
 }
 .count__count > input {
-  width: 40px;
-  height: 30px;
-  font-size: 16px;
-  font-weight: 600;
+  width: 2.5rem;
+  height: 1.875rem;
+  font-size: var(--normal-font);
+  font-weight: var(--semi-bold);
   text-align: center;
-  margin: 0 5px;
+  margin: 0 var(--x-0-25);
   outline: none;
   border: none;
-  background: var(--white);
+  background-color: var(--white-color);
 }

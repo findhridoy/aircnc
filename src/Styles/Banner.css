@@ -42,12 +42,12 @@
   .banner__left {
     position: absolute;
     left: 0;
-    z-index: 9;
+    z-index: var(--z-9);
   }
   .banner__right {
     position: relative;
-    left: calc(380px + 50px);
-    z-index: 9;
-    max-width: 750px;
+    left: calc(23.75rem + 3.125rem);
+    z-index: var(--z-9);
+    max-width: 46.875rem;
   }
 }
