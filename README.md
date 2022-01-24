@@ -15,6 +15,6 @@
 
 - 💬 Technology **React, Firebase Auth, CSS, HTML(JSX).**
 
-- 📄 Live Demo: [Click Here](https://findhridoy.github.io)
+- 📄 Live Demo: [Click Here](https://aircnc-dev.netlify.app/)
 
 ![weather-clock](/preview.png)
