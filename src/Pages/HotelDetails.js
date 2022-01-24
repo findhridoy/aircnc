@@ -20,7 +20,7 @@ function HotelDetails() {
 
   useEffect(() => {
     data
-      .filter((res) => res.id == id)
+      .filter((res) => res.id.toString() === id.toString())
       .map((resData) => setExecetData({ ...resData }));
   }, [id]);
 

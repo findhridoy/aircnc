@@ -31,13 +31,14 @@ function Header() {
     setShowMenu(!showMenu);
   };
   useEffect(() => {
-    window.addEventListener("scroll", function () {
+    const cleanup = window.addEventListener("scroll", function () {
       if (this.scrollY >= 50) {
         setShowHeader(true);
       } else {
         setShowHeader(false);
       }
     });
+    return () => cleanup;
   }, []);
   return (
     <header className={showHeader ? "header show__header" : "header"}>
